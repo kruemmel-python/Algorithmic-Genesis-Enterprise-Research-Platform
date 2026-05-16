@@ -1,4 +1,5 @@
 # Algorithmic Genesis Suite
+<img width="1672" height="941" alt="ag" src="https://github.com/user-attachments/assets/2522ebb1-720d-4779-b3b3-38cf392078ec" />
 
 **Zwei miteinander verbundene Forschungsprojekte für algorithmische Entdeckung, Code-Synthese und daraus abgeleitete adaptive Ausführungssysteme.**
 
