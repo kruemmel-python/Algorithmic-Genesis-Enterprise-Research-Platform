@@ -1,0 +1,23 @@
+Algorithmic Genesis guided WebGUI implementation log
+
+Implemented:
+- Formula-part catalog in C++ and JSON.
+- New CLI command: list-formula-parts.
+- New CLI command: discover-guided.
+- Guided manifest parsing and validation with at least 3 selected parts.
+- Guided seed compilation and expression-budget adjustment.
+- Research WebGUI server without external dependencies.
+- Browser UI for experiment setup, formula-part selection, job status, reports, artifacts and test execution.
+- Example manifest in experiments/guided_root_policy_example.json.
+- Documentation in docs/WEBGUI_GUIDED_DISCOVERY.md.
+- Tests for guided formula-part manifest.
+
+Local validation:
+cmake -S . -B build_check -DAG_ENABLE_OPENCL=OFF -DAG_ENABLE_SQLITE=OFF -DAG_WARNINGS_AS_ERRORS=ON
+cmake --build build_check --parallel 2
+ctest --test-dir build_check --output-on-failure
+
+Result:
+Build successful.
+Tests successful.
+Guided smoke discovery successful.

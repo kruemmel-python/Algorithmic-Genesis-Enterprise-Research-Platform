@@ -1,0 +1,8 @@
+Validation performed in sandbox:
+cmake -S . -B build_test2 -DAG_ENABLE_OPENCL=OFF -DAG_ENABLE_SQLITE=OFF
+cmake --build build_test2 --parallel 2
+ctest --test-dir build_test2 --output-on-failure
+
+Result: build successful, 100% tests passed.
+OpenCL runtime cannot be executed in this sandbox because OpenCL headers/runtime are absent here.
+The code path is guarded with AG_ENABLE_OPENCL and was written against OpenCL 1.2 APIs.

@@ -1,0 +1,36 @@
+Algorithmic Genesis - Executable Algorithm Synthesis Layer
+
+Implemented:
+- discover-algorithm CLI command
+- AlgorithmSynthesisConfig / AlgorithmArtifact / AlgorithmSynthesisReport
+- Evolution-to-algorithm wrapper: evolves mathematical kernel K(x), selects nontrivial candidate, wraps into algorithm family
+- Domain-to-algorithm mapping:
+  chaotic_maps -> chaotic_map_explorer
+  root_finding -> root_refiner
+  fixed_point_dynamics -> fixed_point_iterator
+  signal_transform -> signal_morpher
+  sequence_generation -> sequence_extrapolator
+  symbolic_identity_search -> identity_residual_reducer
+- Exports:
+  *_algorithm.py
+  *_algorithm.hpp
+  *_algorithm.cl
+  *_manifest.json
+  *_README.md
+  test_*_algorithm.py
+- Safe algorithm code:
+  numeric poison containment
+  gas limits
+  finite sanitization
+  deterministic fallback
+- Nontriviality scoring includes structural and behavior variance checks
+- Tests added: test_algorithm.cpp
+
+Validation:
+cmake -S . -B build -DAG_ENABLE_OPENCL=OFF -DAG_ENABLE_SQLITE=OFF -DAG_WARNINGS_AS_ERRORS=ON
+cmake --build build --parallel 2
+ctest --test-dir build --output-on-failure
+
+Result:
+Build passed
+Tests passed

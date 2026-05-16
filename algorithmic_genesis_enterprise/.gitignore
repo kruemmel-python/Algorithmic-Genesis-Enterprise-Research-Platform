@@ -1,0 +1,13 @@
+build/
+cmake-build-*/
+*.db
+*.sqlite
+*.json
+*.o
+*.a
+*.so
+*.dylib
+*.dll
+__pycache__/
+.pytest_cache/
+.DS_Store

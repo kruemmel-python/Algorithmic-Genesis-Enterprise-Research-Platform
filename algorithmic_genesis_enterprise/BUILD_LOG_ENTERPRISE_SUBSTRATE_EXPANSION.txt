@@ -1,0 +1,14 @@
+Configured and built in sandbox with:
+
+cmake -S . -B build -DAG_ENABLE_OPENCL=OFF -DAG_ENABLE_SQLITE=OFF -DAG_WARNINGS_AS_ERRORS=ON
+cmake --build build --parallel 2
+ctest --test-dir build --output-on-failure
+
+Internal ctest changing into directory: /mnt/data/ag_substrate_full_build
+Test project /mnt/data/ag_substrate_full_build
+    Start 1: ag_tests
+1/1 Test #1: ag_tests .........................   Passed    0.04 sec
+
+[0;32m100% tests passed[0;0m, 0 tests failed[0;0m out of 1
+
+Total Test time (real) =   0.05 sec

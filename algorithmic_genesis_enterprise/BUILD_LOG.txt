@@ -1,0 +1,56 @@
+CONFIGURE STDOUT:
+-- The CXX compiler identification is GNU 14.2.0
+-- Detecting CXX compiler ABI info
+-- Detecting CXX compiler ABI info - done
+-- Check for working CXX compiler: /usr/bin/c++ - skipped
+-- Detecting CXX compile features
+-- Detecting CXX compile features - done
+-- Found SQLite3: /usr/include (found version "3.46.1")
+-- Configuring done (1.9s)
+-- Generating done (0.0s)
+-- Build files have been written to: /mnt/data/algorithmic_genesis_enterprise/build
+
+STDERR:
+
+BUILD STDOUT:
+[  5%] [32mBuilding CXX object CMakeFiles/ag_core.dir/src/ag_expr.cpp.o[0m
+[ 10%] [32mBuilding CXX object CMakeFiles/ag_core.dir/src/ag_rng.cpp.o[0m
+[ 15%] [32mBuilding CXX object CMakeFiles/ag_core.dir/src/ag_fitness.cpp.o[0m
+[ 21%] [32mBuilding CXX object CMakeFiles/ag_core.dir/src/ag_ea.cpp.o[0m
+[ 26%] [32mBuilding CXX object CMakeFiles/ag_core.dir/src/ag_snn.cpp.o[0m
+[ 31%] [32mBuilding CXX object CMakeFiles/ag_core.dir/src/ag_opencl.cpp.o[0m
+[ 36%] [32mBuilding CXX object CMakeFiles/ag_core.dir/src/ag_persist.cpp.o[0m
+[ 42%] [32mBuilding CXX object CMakeFiles/ag_core.dir/src/ag_json.cpp.o[0m
+[ 47%] [32mBuilding CXX object CMakeFiles/ag_core.dir/src/ag_cli_common.cpp.o[0m
+[ 52%] [32m[1mLinking CXX static library libag_core.a[0m
+[ 52%] Built target ag_core
+[ 63%] [32mBuilding CXX object CMakeFiles/ag_tests.dir/tests/test_main.cpp.o[0m
+[ 63%] [32mBuilding CXX object CMakeFiles/ag_cli.dir/src/main.cpp.o[0m
+[ 68%] [32mBuilding CXX object CMakeFiles/ag_tests.dir/tests/test_rng.cpp.o[0m
+[ 73%] [32m[1mLinking CXX executable ag_cli[0m
+[ 73%] Built target ag_cli
+[ 78%] [32mBuilding CXX object CMakeFiles/ag_tests.dir/tests/test_expr.cpp.o[0m
+[ 84%] [32mBuilding CXX object CMakeFiles/ag_tests.dir/tests/test_snn.cpp.o[0m
+[ 89%] [32mBuilding CXX object CMakeFiles/ag_tests.dir/tests/test_ea.cpp.o[0m
+[ 94%] [32mBuilding CXX object CMakeFiles/ag_tests.dir/tests/test_persist.cpp.o[0m
+[100%] [32m[1mLinking CXX executable ag_tests[0m
+[100%] Built target ag_tests
+
+STDERR:
+/mnt/data/algorithmic_genesis_enterprise/src/ag_expr.cpp: In function ‘bool ag::validate_genome(const Genome&, std::string*)’:
+/mnt/data/algorithmic_genesis_enterprise/src/ag_expr.cpp:158:50: warning: comparison is always false due to limited range of data type [-Wtype-limits]
+  158 |         if (static_cast<int>(genome.genes[i].op) < 0 || static_cast<int>(genome.genes[i].op) > static_cast<int>(Op::Tanh)) {
+      |             ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~
+
+TEST STDOUT:
+Internal ctest changing into directory: /mnt/data/algorithmic_genesis_enterprise/build
+Test project /mnt/data/algorithmic_genesis_enterprise/build
+    Start 1: ag_tests
+1/1 Test #1: ag_tests .........................   Passed    0.04 sec
+
+[0;32m100% tests passed[0;0m, 0 tests failed[0;0m out of 1
+
+Total Test time (real) =   0.04 sec
+
+STDERR:
+

@@ -1,0 +1,107 @@
+:root {
+  --bg: #0d1020;
+  --panel: #151a2d;
+  --panel2: #111625;
+  --text: #e8ecff;
+  --muted: #9ca8c7;
+  --accent: #8bd3ff;
+  --accent2: #b28cff;
+  --good: #7af0b1;
+  --warn: #ffd166;
+  --bad: #ff6b6b;
+  --line: #29324d;
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0; background: radial-gradient(circle at top left, #1d2245, var(--bg) 42%);
+  color: var(--text); font-family: Inter, Segoe UI, system-ui, sans-serif;
+}
+header {
+  display: flex; justify-content: space-between; align-items: center; gap: 1rem;
+  padding: 2rem 3rem; border-bottom: 1px solid var(--line);
+}
+h1 { margin: 0; font-size: 2.2rem; letter-spacing: -0.03em; }
+h2 { margin-top: 0; color: var(--accent); }
+p { color: var(--muted); }
+.badge { padding: .7rem 1rem; border: 1px solid var(--accent); border-radius: 999px; color: var(--accent); }
+main { padding: 2rem 3rem; display: grid; gap: 1.5rem; }
+.panel {
+  background: linear-gradient(180deg, rgba(21,26,45,.96), rgba(17,22,37,.96));
+  border: 1px solid var(--line); border-radius: 18px; padding: 1.3rem;
+  box-shadow: 0 20px 40px rgba(0,0,0,.25);
+}
+.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 1rem; }
+label { display: grid; gap: .4rem; color: var(--muted); }
+input, select {
+  width: 100%; background: #0a0f1e; color: var(--text); border: 1px solid var(--line);
+  border-radius: 10px; padding: .75rem;
+}
+button {
+  background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #08101d;
+  border: 0; border-radius: 12px; padding: .85rem 1.1rem; font-weight: 700; cursor: pointer; margin-right: .6rem;
+}
+button:hover { filter: brightness(1.08); }
+.parts { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: .75rem; }
+.part {
+  background: #0b1020; border: 1px solid var(--line); border-radius: 14px; padding: .85rem;
+  display: grid; gap: .3rem; cursor: pointer;
+}
+.part.selected { border-color: var(--accent); box-shadow: 0 0 0 1px var(--accent); }
+.part strong { color: var(--text); }
+.part small { color: var(--muted); }
+.category { color: var(--accent2); font-size: .8rem; text-transform: uppercase; letter-spacing: .06em; }
+.summary { padding: .8rem; border: 1px dashed var(--line); border-radius: 12px; color: var(--muted); margin-bottom: 1rem; }
+.hint { margin-top: -.5rem; }
+pre {
+  white-space: pre-wrap; overflow: auto; max-height: 520px;
+  background: #070b15; border: 1px solid var(--line); border-radius: 12px; padding: 1rem;
+}
+.split { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+#artifacts { display: flex; flex-wrap: wrap; gap: .5rem; margin-bottom: 1rem; }
+.file-chip { border: 1px solid var(--line); padding: .5rem .7rem; border-radius: 999px; color: var(--accent); cursor: pointer; }
+footer { color: var(--muted); padding: 1rem 3rem 3rem; }
+@media (max-width: 900px) { header, main, footer { padding-left: 1rem; padding-right: 1rem; } .split { grid-template-columns: 1fr; } }
+
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  gap: .75rem;
+  margin: 1rem 0;
+}
+.metric {
+  background: #0b1020;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: .85rem;
+  display: grid;
+  gap: .35rem;
+}
+.metric span { color: var(--muted); font-size: .85rem; }
+.metric b { color: var(--accent); font-size: 1.15rem; }
+.badCard { border-color: var(--bad); color: var(--bad); }
+.charts { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-top: 1rem; }
+.chartBox {
+  border: 1px solid var(--line);
+  background: #0b1020;
+  border-radius: 14px;
+  padding: 1rem;
+}
+.chartBox h3 { margin-top: 0; color: var(--accent2); }
+canvas { width: 100%; height: auto; border: 1px solid var(--line); border-radius: 10px; background: #070b15; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #070b15;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  overflow: hidden;
+}
+th, td {
+  padding: .65rem;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+}
+th { color: var(--accent); background: #0b1020; }
+td { color: var(--text); }
+code { color: var(--accent); }

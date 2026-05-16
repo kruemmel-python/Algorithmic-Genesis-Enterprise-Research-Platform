@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <title>Algorithmic Genesis Research Console</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body>
+<header>
+  <div>
+    <h1>Algorithmic Genesis</h1>
+    <p>Guided algorithm discovery across mathematics and computer science: Formel-/Strategie-Teile → Domain Policy → ausführbarer Code.</p>
+  </div>
+  <div class="badge">Research WebGUI</div>
+</header>
+
+<main>
+  <section class="panel">
+    <h2>1. Experiment</h2>
+    <div class="grid">
+      <label>Name <input id="name" value="guided_root_policy_experiment"></label>
+      <label>Domain
+        <select id="domain">
+          <option value="root_finding">root_finding</option>
+          <option value="chaotic_maps">chaotic_maps</option>
+          <option value="signal_transform">signal_transform</option>
+          <option value="fixed_point_dynamics">fixed_point_dynamics</option>
+          <option value="sequence_generation">sequence_generation</option>
+          <option value="classification_boundary">classification_boundary</option>
+          <option value="symbolic_identity_search">symbolic_identity_search</option>
+          <option value="sorting">sorting</option>
+          <option value="graph_shortest_path">graph_shortest_path</option>
+          <option value="scheduling">scheduling</option>
+          <option value="parsing">parsing</option>
+          <option value="constraint_solving">constraint_solving</option>
+          <option value="stream_processing">stream_processing</option>
+          <option value="compression">compression</option>
+          <option value="cache_eviction">cache_eviction</option>
+          <option value="load_balancing">load_balancing</option>
+          <option value="anomaly_detection">anomaly_detection</option>
+        </select>
+      </label>
+      <label>Profil
+        <select id="profile">
+          <option value="balanced">balanced</option>
+          <option value="safety_first">safety_first</option>
+          <option value="novelty_max">novelty_max</option>
+          <option value="speed_first">speed_first</option>
+          <option value="aggressive">aggressive</option>
+          <option value="chaos_exploration">chaos_exploration</option>
+        </select>
+      </label>
+      <label>Seed <input id="seed" type="number" value="2026"></label>
+      <label>Population <input id="population" type="number" value="256"></label>
+      <label>Generations <input id="generations" type="number" value="250"></label>
+      <label>Generator
+        <select id="generator">
+          <option value="snn">snn</option>
+          <option value="random">random</option>
+        </select>
+      </label>
+      <label>Fitness Backend
+        <select id="fitness_backend">
+          <option value="opencl-vm">opencl-vm</option>
+          <option value="cpu">cpu</option>
+        </select>
+      </label>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>2. Formel- und Strategie-Teile auswählen</h2>
+    <p class="hint">Mindestens 3. Empfohlen: 5–20. Die Auswahl wird in einen Guided Seed, Suchdruck, Ausdrucksbudget und Sicherheitsprofil übersetzt.</p>
+    <div id="selectionSummary" class="summary"></div>
+    <div id="parts" class="parts"></div>
+  </section>
+
+  <section class="panel">
+    <h2>3. Discovery starten</h2>
+    <button id="start">Experiment starten</button>
+    <button id="refresh">Status aktualisieren</button>
+    <pre id="status">Noch kein Lauf gestartet.</pre>
+  </section>
+
+  <section class="panel split">
+    <div>
+      <h2>4. Resultat</h2>
+      <pre id="result"></pre>
+    </div>
+    <div>
+      <h2>5. Report</h2>
+      <pre id="report"></pre>
+    </div>
+  </section>
+
+  <section class="panel">
+    <h2>6. Exportierte Artefakte</h2>
+    <div id="artifacts"></div>
+    <button id="runTests">Exportierte Python-Tests ausführen</button>
+    <pre id="testOutput"></pre>
+    <h3>Dateiansicht</h3>
+    <pre id="fileView"></pre>
+  </section>
+
+  <section class="panel">
+    <h2>7. Domain-Evaluation</h2>
+    <p class="hint">
+      Die Research Console führt nun domänenspezifische Evaluationen für Mathematik- und Informatik-Kernbereiche aus:
+      <code>chaotic_maps</code>, <code>root_finding</code>, <code>signal_transform</code>,
+      <code>fixed_point_dynamics</code>, <code>sequence_generation</code>,
+      <code>classification_boundary</code>, <code>symbolic_identity_search</code> sowie
+      <code>sorting</code>, <code>graph_shortest_path</code>, <code>scheduling</code>,
+      <code>parsing</code>, <code>constraint_solving</code>, <code>stream_processing</code>,
+      <code>compression</code>, <code>cache_eviction</code>, <code>load_balancing</code> und
+      <code>anomaly_detection</code>. Chaotic maps erhalten zusätzlich Orbit-, Histogramm- und Return-Map-Visualisierung.
+    </p>
+    <button id="runDomainEval">Domain-Evaluation ausführen</button>
+    <div id="domainCards" class="cards"></div>
+    <div class="charts">
+      <div class="chartBox">
+        <h3>Orbit-Verlauf</h3>
+        <canvas id="orbitChart" width="900" height="260"></canvas>
+      </div>
+      <div class="chartBox">
+        <h3>Histogramm / Attraktorabdeckung</h3>
+        <canvas id="histChart" width="900" height="260"></canvas>
+      </div>
+      <div class="chartBox">
+        <h3>Return-Map xₜ → xₜ₊₁</h3>
+        <canvas id="returnMapChart" width="900" height="320"></canvas>
+      </div>
+    </div>
+    <h3>Baseline-Vergleich</h3>
+    <div id="baselineTable"></div>
+    <h3>Domain-Evaluation JSON</h3>
+    <pre id="domainEval"></pre>
+  </section>
+
+</main>
+
+<footer>
+  <span>Generated algorithms are research candidates, not proved theorems. Validate against baselines before production use.</span>
+</footer>
+
+<script src="/app.js"></script>
+</body>
+</html>

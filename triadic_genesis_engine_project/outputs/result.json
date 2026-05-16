@@ -1,0 +1,6319 @@
+{
+  "config": {
+    "window": 64,
+    "horizon": 8,
+    "gas_limit": 10000,
+    "entropy_bins": 32,
+    "learning_rate": 0.12,
+    "shock_threshold": 3.0,
+    "exploration_gain": 0.23,
+    "anchor_gain": 0.37,
+    "delta_gain": 0.19,
+    "min_weight": 0.03,
+    "max_abs_prediction": 1000000.0,
+    "warmup": 4
+  },
+  "lineage": [
+    {
+      "name": "ag_chaotic_map_explorer_0c55ac1bc71d",
+      "kind": "chaotic_map_explorer",
+      "domain": "chaotic_maps",
+      "kernel_expression": "tanh(tanh(sin((sin((x + x)) + sin((x + x))))))",
+      "source_run": "run_20260516_171657_17436",
+      "role_in_fusion": "bounded entropic oscillator / exploration phase",
+      "algorithm_score": 0.949405,
+      "nontriviality": 0.984122
+    },
+    {
+      "name": "ag_chaotic_map_explorer_dc0f1a3431df",
+      "kind": "chaotic_map_explorer",
+      "domain": "chaotic_maps",
+      "kernel_expression": "tanh(tanh(((x * cos(x)) / (x * cos(x)))))",
+      "source_run": "run_20260516_173702_22107",
+      "role_in_fusion": "contractive anchor / trust stabilizer",
+      "algorithm_score": 0.952024,
+      "nontriviality": 0.984937
+    },
+    {
+      "name": "ag_sequence_extrapolator_cf5cb9a3f619",
+      "kind": "sequence_extrapolator",
+      "domain": "sequence_generation",
+      "kernel_expression": "((logabs(x) - logabs(tanh(x))) + tanh(tanh(x)))",
+      "source_run": "run_20260516_182332_12601",
+      "role_in_fusion": "delta-curvature predictor / temporal extrapolator",
+      "algorithm_score": 0.965823,
+      "nontriviality": 0.984883
+    }
+  ],
+  "steps": [
+    {
+      "index": 0,
+      "observation": 0.0,
+      "prediction": 0.0,
+      "residual": 0.0,
+      "anomaly_score": 0.050000000000000086,
+      "regime": "contractive",
+      "trust": 0.5999578924577428,
+      "chaos_phase": 0.123,
+      "anchor": 0.6420149920119997,
+      "entropy": -3.203426503814916e-16,
+      "return_diversity": 0.0,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.0,
+          "weight": 0.25,
+          "error_ema": 1.0
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.0,
+          "weight": 0.25,
+          "error_ema": 1.0
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.0,
+          "weight": 0.25,
+          "error_ema": 1.0
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.0,
+          "weight": 0.25,
+          "error_ema": 1.0
+        }
+      ]
+    },
+    {
+      "index": 1,
+      "observation": 0.21003061,
+      "prediction": 0.36578199243291826,
+      "residual": -0.15575138243291825,
+      "anomaly_score": 1.120847867085297,
+      "regime": "drifting",
+      "trust": 0.6127913890327131,
+      "chaos_phase": 0.4480362083154526,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.19999999999999943,
+      "return_diversity": -1.601713251907458e-16,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.4688754064658572,
+          "weight": 0.24667955653220244,
+          "error_ema": 0.9110613755759028
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.44170452317095377,
+          "weight": 0.24753720147485725,
+          "error_ema": 0.9078008695805144
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.25992244614852744,
+          "weight": 0.2534321967914271,
+          "error_ema": 0.8859870203378233
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.2926255939463346,
+          "weight": 0.2523510452015132,
+          "error_ema": 0.8899113980735601
+        }
+      ]
+    },
+    {
+      "index": 2,
+      "observation": 0.41517319,
+      "prediction": 0.5517326128468258,
+      "residual": -0.13655942284682582,
+      "anomaly_score": 0.7218252204548703,
+      "regime": "drifting",
+      "trust": 0.6400902864018012,
+      "chaos_phase": 0.5658065824835777,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.31699250014423036,
+      "return_diversity": 0.09999999999999971,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.6600860110321474,
+          "weight": 0.24294334272154142,
+          "error_ema": 0.8311235490306522
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.6470121050856827,
+          "weight": 0.24420192633215324,
+          "error_ema": 0.8266854350411347
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.46390389638820784,
+          "weight": 0.25652981194315105,
+          "error_ema": 0.7855162626638694
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.44055747384955285,
+          "weight": 0.2563249190031543,
+          "error_ema": 0.7861681443666793
+        }
+      ]
+    },
+    {
+      "index": 3,
+      "observation": 0.61068035,
+      "prediction": 0.7244042518447464,
+      "residual": -0.11372390184474646,
+      "anomaly_score": 0.4863720065201941,
+      "regime": "drifting",
+      "trust": 0.6770943559418643,
+      "chaos_phase": 0.5588123602869024,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2999999999999991,
+      "return_diversity": 0.15849625007211518,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.8439233051957932,
+          "weight": 0.23921194789979497,
+          "error_ema": 0.7593778777704692
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.8313154280324955,
+          "weight": 0.24086530711820792,
+          "error_ema": 0.753959392200098
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.6571222052733048,
+          "weight": 0.2597984569309206,
+          "error_ema": 0.6968273337770017
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.5766058134224811,
+          "weight": 0.2601242880510765,
+          "error_ema": 0.6959169114319801
+        }
+      ]
+    },
+    {
+      "index": 4,
+      "observation": 0.79208189,
+      "prediction": 0.8799196284398475,
+      "residual": -0.08783773843984755,
+      "anomaly_score": 0.32208562210918773,
+      "regime": "drifting",
+      "trust": 0.7210880516699719,
+      "chaos_phase": 0.559538168831619,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2741901188909329,
+      "return_diversity": 0.14999999999999955,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.0083188857711565,
+          "weight": 0.23621601260402847,
+          "error_ema": 0.6942009719305516
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.9968286796684122,
+          "weight": 0.238238202874279,
+          "error_ema": 0.6880538798962957
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.8351730180540038,
+          "weight": 0.2638393112544051,
+          "error_ema": 0.618378989090242
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.6982800322028091,
+          "weight": 0.26170647326728746,
+          "error_ema": 0.6236631049958054
+        }
+      ]
+    },
+    {
+      "index": 5,
+      "observation": 0.95531344,
+      "prediction": 1.0161028150108844,
+      "residual": -0.06078937501088444,
+      "anomaly_score": 0.1987768114037829,
+      "regime": "drifting",
+      "trust": 0.770153139009005,
+      "chaos_phase": 0.5597193972339656,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2503258334775637,
+      "return_diversity": 0.13709505944546646,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.149685379596074,
+          "weight": 0.2341624794330298,
+          "error_ema": 0.6342214880504143
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.13955867889838,
+          "weight": 0.23652143740618445,
+          "error_ema": 0.6275968429765458
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.9940883678396617,
+          "weight": 0.2687087582669108,
+          "error_ema": 0.5488265017401723
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.8053400981447031,
+          "weight": 0.26060732489387495,
+          "error_ema": 0.5668203334189443
+        }
+      ]
+    },
+    {
+      "index": 6,
+      "observation": 1.0968333,
+      "prediction": 1.1310293766280035,
+      "residual": -0.03419607662800361,
+      "anomaly_score": 0.10262929193052714,
+      "regime": "drifting",
+      "trust": 0.8227693860791655,
+      "chaos_phase": 0.5599872077479691,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.22976697085618247,
+      "return_diversity": 0.12516291673878185,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.2651030632922686,
+          "weight": 0.233181928695732,
+          "error_ema": 0.5783072810794369
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.256580501585725,
+          "weight": 0.23583857799017802,
+          "error_ema": 0.5714548860096473
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.1304507125613523,
+          "weight": 0.27436340020189653,
+          "error_ema": 0.4870014110387139
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.8972099037447843,
+          "weight": 0.2566160931121935,
+          "error_ema": 0.5227567009592969
+        }
+      ]
+    },
+    {
+      "index": 7,
+      "observation": 1.2137243,
+      "prediction": 1.2231144723297847,
+      "residual": -0.009390172329784674,
+      "anomaly_score": 0.026448649788504787,
+      "regime": "drifting",
+      "trust": 0.8775896562233051,
+      "chaos_phase": 0.5602840367403059,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2122556248918257,
+      "return_diversity": 0.11488348542809124,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.3524081990275776,
+          "weight": 0.23332179165474767,
+          "error_ema": 0.5255524752332138
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.3456784971078806,
+          "weight": 0.23622927263908033,
+          "error_ema": 0.5187148033414354
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.2414912365395716,
+          "weight": 0.28063300798771107,
+          "error_ema": 0.43189327409881684
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.9733398124009083,
+          "weight": 0.24981592771846098,
+          "error_ema": 0.4888720353560723
+        }
+      ]
+    },
+    {
+      "index": 8,
+      "observation": 1.30377758,
+      "prediction": 1.2909805591427808,
+      "residual": 0.012797020857219232,
+      "anomaly_score": 0.03512123638582501,
+      "regime": "drifting",
+      "trust": 0.9229625192910925,
+      "chaos_phase": 0.5606040234565235,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.19728534574616763,
+      "return_diversity": 0.10612781244591285,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.4102570520231594,
+          "weight": 0.23456590657248733,
+          "error_ema": 0.4752637148480073
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.405442233151495,
+          "weight": 0.23766805707675162,
+          "error_ema": 0.46866878531864253
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.3251693356607461,
+          "weight": 0.28722282255582543,
+          "error_ema": 0.3826330918862484
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.0329365553049605,
+          "weight": 0.24054321379493557,
+          "error_ema": 0.4627083140767484
+        }
+      ]
+    },
+    {
+      "index": 9,
+      "observation": 1.365556,
+      "prediction": 1.333464911626214,
+      "residual": 0.032091088373785936,
+      "anomaly_score": 0.08769179261131899,
+      "regime": "drifting",
+      "trust": 0.9545256041119351,
+      "chaos_phase": 0.5609366083196323,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.1843856189774716,
+      "return_diversity": 0.09864267287308381,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.4381631421014007,
+          "weight": 0.23687145104712845,
+          "error_ema": 0.42694492611841445
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.4353047887978936,
+          "weight": 0.24010114304544508,
+          "error_ema": 0.4207983857361527
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.3802311885744412,
+          "weight": 0.2937411882112686,
+          "error_ema": 0.33847814348883154
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.0749040394546374,
+          "weight": 0.22928621769615784,
+          "error_ema": 0.4420615516529821
+        }
+      ]
+    },
+    {
+      "index": 10,
+      "observation": 1.39843533,
+      "prediction": 1.3497796036616116,
+      "residual": 0.04865572633838844,
+      "anomaly_score": 0.13155787723295198,
+      "regime": "drifting",
+      "trust": 0.976008120925016,
+      "chaos_phase": 0.5612713221898032,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.17317132349144382,
+      "return_diversity": 0.0921928094887358,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.436506258468888,
+          "weight": 0.24020853033207581,
+          "error_ema": 0.38028004640047125
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.4355591317550176,
+          "weight": 0.24348599503828228,
+          "error_ema": 0.37475743565841646
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.4062456684313047,
+          "weight": 0.29973650967362303,
+          "error_ema": 0.2987980068819283
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.0980189838874743,
+          "weight": 0.21656896495601888,
+          "error_ema": 0.42506412698812734
+        }
+      ]
+    },
+    {
+      "index": 11,
+      "observation": 1.4026219,
+      "prediction": 1.3397362449011512,
+      "residual": 0.0628856550988488,
+      "anomaly_score": 0.16956786511385213,
+      "regime": "drifting",
+      "trust": 0.9899601501462801,
+      "chaos_phase": 0.561597930364125,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.1633378176630033,
+      "return_diversity": 0.08658566174572191,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.406513746677415,
+          "weight": 0.24459134471447325,
+          "error_ema": 0.3351134624337045
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.4073492388808846,
+          "weight": 0.24782196494420214,
+          "error_ema": 0.33035382404511265
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.4036164010608898,
+          "weight": 0.3047263679728026,
+          "error_ema": 0.2630615861834037
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.1012415107511682,
+          "weight": 0.20286032236852203,
+          "error_ema": 0.4102220784594119
+        }
+      ]
+    },
+    {
+      "index": 12,
+      "observation": 1.37914643,
+      "prediction": 1.303933807714229,
+      "residual": 0.07521262228577097,
+      "anomaly_score": 0.20394898866769876,
+      "regime": "drifting",
+      "trust": 0.9981568734888092,
+      "chaos_phase": 0.5619068976179721,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.15464566970498267,
+      "return_diversity": 0.08166890883150164,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.3502173328963745,
+          "weight": 0.247742017387983,
+          "error_ema": 0.298371338594095
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.3526370234409006,
+          "weight": 0.25116783931725783,
+          "error_ema": 0.29389249394679107
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.3735699366367247,
+          "weight": 0.310307943898469,
+          "error_ema": 0.2321633750449883
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.0840276160632563,
+          "weight": 0.19078219939629026,
+          "error_ema": 0.3964096867166917
+        }
+      ]
+    },
+    {
+      "index": 13,
+      "observation": 1.32983399,
+      "prediction": 1.2429098683555235,
+      "residual": 0.08692412164447649,
+      "anomaly_score": 0.23868312383192325,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": 0.5621897517388308,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.1469059842878932,
+      "return_diversity": 0.07732283485249133,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.2703882795777413,
+          "weight": 0.24926917562697898,
+          "error_ema": 0.2697002632134746
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.2741452718677158,
+          "weight": 0.25297664544325155,
+          "error_ema": 0.26530804084905024
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.318120039464104,
+          "weight": 0.3169412147672883,
+          "error_ema": 0.20570944410389722
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.0437759894174277,
+          "weight": 0.18081296416248113,
+          "error_ema": 0.38316748438059733
+        }
+      ]
+    },
+    {
+      "index": 14,
+      "observation": 1.25725115,
+      "prediction": 1.159660615996788,
+      "residual": 0.09759053400321216,
+      "anomaly_score": 0.2730250703818071,
+      "regime": "drifting",
+      "trust": 0.9999303222381692,
+      "chaos_phase": 0.5624393296966707,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.13996856797724683,
+      "return_diversity": 0.0734529921439466,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.170455240116173,
+          "weight": 0.2491461914485623,
+          "error_ema": 0.24775174081391693
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.1752789179082717,
+          "weight": 0.25319732046486765,
+          "error_ema": 0.24330774379817163
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.240009419566161,
+          "weight": 0.32474405528511174,
+          "error_ema": 0.18309331846349025
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.9820866226848246,
+          "weight": 0.17291243280145835,
+          "error_ema": 0.3702071295327467
+        }
+      ]
+    },
+    {
+      "index": 15,
+      "observation": 1.1646317,
+      "prediction": 1.0581544422882097,
+      "residual": 0.10647725771179029,
+      "anomaly_score": 0.30492749473727515,
+      "regime": "drifting",
+      "trust": 0.9969904387530822,
+      "chaos_phase": 0.5626498887235541,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.13371288863991843,
+      "return_diversity": 0.06998428398862341,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.05440717332775,
+          "weight": 0.24747989755207192,
+          "error_ema": 0.2312484751169169
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.0600264156556882,
+          "weight": 0.25190086938433426,
+          "error_ema": 0.22666344866370844
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.1426303620827947,
+          "weight": 0.33367560286407555,
+          "error_ema": 0.16376228079793606
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.9021597970113137,
+          "weight": 0.16694363019951824,
+          "error_ema": 0.35727890234745946
+        }
+      ]
+    },
+    {
+      "index": 16,
+      "observation": 1.05578315,
+      "prediction": 0.9428686461175844,
+      "residual": 0.11291450388241553,
+      "anomaly_score": 0.3317993556090908,
+      "regime": "drifting",
+      "trust": 0.9921722009890427,
+      "chaos_phase": 0.5628170833754484,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.12804128667209316,
+      "return_diversity": 0.06685644431995921,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.9266837618446624,
+          "weight": 0.2444941260078762,
+          "error_ema": 0.21899058468152738
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.9328443806086512,
+          "weight": 0.2492736509974182,
+          "error_ema": 0.2142164871510253
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.0299266616452558,
+          "weight": 0.3435218306982621,
+          "error_ema": 0.14721358570475304
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.8079813126503612,
+          "weight": 0.16271039229644352,
+          "error_ema": 0.34414165454772094
+        }
+      ]
+    },
+    {
+      "index": 17,
+      "observation": 0.93497671,
+      "prediction": 0.8185850898979948,
+      "residual": 0.11639162010200521,
+      "anomaly_score": 0.3507354286548617,
+      "regime": "drifting",
+      "trust": 0.9864977354010037,
+      "chaos_phase": 0.562937837790126,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.12287388917735051,
+      "return_diversity": 0.06402064333604658,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.7920548700228718,
+          "weight": 0.24049615212259037,
+          "error_ema": 0.2098623353169995
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.798528771291314,
+          "weight": 0.24559316300839765,
+          "error_ema": 0.20488426133794457
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.9062796781237088,
+          "weight": 0.3539198888161532,
+          "error_ema": 0.13299159924533763
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.7040317995964804,
+          "weight": 0.15999079605285887,
+          "error_ema": 0.3305580452504168
+        }
+      ]
+    },
+    {
+      "index": 18,
+      "observation": 0.80682387,
+      "prediction": 0.6902192288958449,
+      "residual": 0.11660464110415514,
+      "anomaly_score": 0.3589455100923075,
+      "regime": "drifting",
+      "trust": 0.9810035263689774,
+      "chaos_phase": 0.5630101612941382,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.11814478372812917,
+      "return_diversity": 0.061436944588675255,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.6554906045709077,
+          "weight": 0.23583482344738876,
+          "error_ema": 0.20283884693045065
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.6620762192426985,
+          "weight": 0.24119129688108162,
+          "error_ema": 0.1976678680682674
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.7763817335169014,
+          "weight": 0.3644109665389649,
+          "error_ema": 0.12068566371386893
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.5950212977934635,
+          "weight": 0.15856291313256482,
+          "error_ema": 0.3163073884851512
+        }
+      ]
+    },
+    {
+      "index": 19,
+      "observation": 0.6761432,
+      "prediction": 0.5626820592241399,
+      "residual": 0.11346114077586011,
+      "anomaly_score": 0.345498082419908,
+      "regime": "drifting",
+      "trust": 0.977436626075806,
+      "chaos_phase": 0.5630329631650004,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.14951693596491392,
+      "return_diversity": 0.0879506460812001,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.5220243488399225,
+          "weight": 0.23086112001522782,
+          "error_ema": 0.19699244743800587
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.528539699282548,
+          "weight": 0.23641476409852688,
+          "error_ema": 0.19166014398616954
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.6451005887567162,
+          "weight": 0.374503633053519,
+          "error_ema": 0.10992849741739873
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.48567242473068606,
+          "weight": 0.1582204828327263,
+          "error_ema": 0.30120699489925074
+        }
+      ]
+    },
+    {
+      "index": 20,
+      "observation": 0.5478212,
+      "prediction": 0.4407664369470401,
+      "residual": 0.10705476305295991,
+      "anomaly_score": 0.31471438416555114,
+      "regime": "drifting",
+      "trust": 0.9770151036895862,
+      "chaos_phase": 0.5630059212204432,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.19763616740093407,
+      "return_diversity": 0.11219280948873551,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.39661150188998934,
+          "weight": 0.22589954010453286,
+          "error_ema": 0.19149851751864644
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.4028826094607445,
+          "weight": 0.23159263750840275,
+          "error_ema": 0.18605355757253986
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.5173388803121634,
+          "weight": 0.38372966824590543,
+          "error_ema": 0.10039495608985129
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.38055486280905026,
+          "weight": 0.1587781541411589,
+          "error_ema": 0.28513411597425464
+        }
+      ]
+    },
+    {
+      "index": 21,
+      "observation": 0.42667116,
+      "prediction": 0.329046059054995,
+      "residual": 0.09762510094500498,
+      "anomaly_score": 0.28349920825173497,
+      "regime": "drifting",
+      "trust": 0.9794315990573912,
+      "chaos_phase": 0.5629294422317085,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.24200570280695102,
+      "return_diversity": 0.13446983751597041,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.28398728722548794,
+          "weight": 0.2212342035083557,
+          "error_ema": 0.18564076014935033
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.28983536737798365,
+          "weight": 0.22701735050453317,
+          "error_ema": 0.18014742577847703
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.3978925074737442,
+          "weight": 0.3916807903701932,
+          "error_ema": 0.09180099966221981
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.28395949464448705,
+          "weight": 0.16006765561691796,
+          "error_ema": 0.26804342190000563
+        }
+      ]
+    },
+    {
+      "index": 22,
+      "observation": 0.31729413,
+      "prediction": 0.2317777386384916,
+      "residual": 0.0855163913615084,
+      "anomaly_score": 0.2436765577192726,
+      "regime": "drifting",
+      "trust": 0.985227745791173,
+      "chaos_phase": 0.5628047252753307,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.28308744946135067,
+      "return_diversity": 0.15503407095463778,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.18852773111182722,
+          "weight": 0.21710949523363218,
+          "error_ema": 0.17881583679800903
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.19375878085626624,
+          "weight": 0.22294081328502804,
+          "error_ema": 0.17335397658230783
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.2913121035745539,
+          "weight": 0.3980229776792253,
+          "error_ema": 0.08390272287380697
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.19979674247122542,
+          "weight": 0.16192671380211454,
+          "error_ema": 0.2499778977754579
+        }
+      ]
+    },
+    {
+      "index": 23,
+      "observation": 0.2239461,
+      "prediction": 0.15280324353559427,
+      "residual": 0.07114285646440574,
+      "anomaly_score": 0.19784014089598642,
+      "regime": "drifting",
+      "trust": 0.9947697245237691,
+      "chaos_phase": 0.5626339105053452,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.3212685976337645,
+      "return_diversity": 0.17409532604048272,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.1141183143202466,
+          "weight": 0.2137429727360906,
+          "error_ema": 0.17053727066381835
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.11851829355391984,
+          "weight": 0.21958406556974544,
+          "error_ema": 0.16520283616596051
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.2017716911481292,
+          "weight": 0.402491210756157,
+          "error_ema": 0.07649532519117463
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.13150850369519768,
+          "weight": 0.1641817509380069,
+          "error_ema": 0.23107306159897922
+        }
+      ]
+    },
+    {
+      "index": 24,
+      "observation": 0.15041499,
+      "prediction": 0.09545257657668281,
+      "residual": 0.05496241342331719,
+      "anomaly_score": 0.1488682777096268,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": 0.5624202750520267,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.3568762915448965,
+      "return_diversity": 0.19182958340544765,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.06403428474920969,
+          "weight": 0.2113483933992619,
+          "error_ema": 0.16043848281425496
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.06737214096445139,
+          "weight": 0.21715807395069053,
+          "error_ema": 0.1553436377103111
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.13294800225026512,
+          "weight": 0.4048696120347194,
+          "error_ema": 0.06941192469820187
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.08199112939175912,
+          "weight": 0.16662392061532824,
+          "error_ema": 0.2115551574800906
+        }
+      ]
+    },
+    {
+      "index": 25,
+      "observation": 0.09991127,
+      "prediction": 0.062456541493285174,
+      "residual": 0.03745472850671482,
+      "anomaly_score": 0.09891077166974444,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": 0.5621684134411037,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.39018895669547915,
+      "return_diversity": 0.20838561897747102,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.04083828142190754,
+          "weight": 0.21016878367031555,
+          "error_ema": 0.14827462350591544
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.042877482886587034,
+          "weight": 0.21589470464051452,
+          "error_ema": 0.14354645563868332
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.08791433620482078,
+          "weight": 0.4049600077999551,
+          "error_ema": 0.06252212578983915
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.053536139958747696,
+          "weight": 0.16897650388921484,
+          "error_ema": 0.19173355418743
+        }
+      ]
+    },
+    {
+      "index": 26,
+      "observation": 0.07497518,
+      "prediction": 0.05587855097161488,
+      "residual": 0.019096629028385124,
+      "anomaly_score": 0.049333555006927626,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": 0.5618843500583793,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.42144514264561106,
+      "return_diversity": 0.22389012566026145,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.04629915576342272,
+          "weight": 0.21052313347101356,
+          "error_ema": 0.13392279159359485
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.04681651429379114,
+          "weight": 0.21608989879655247,
+          "error_ema": 0.1296999208467864
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.06905172285980062,
+          "weight": 0.402536157571935,
+          "error_ema": 0.05573028555188238
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.047801261005422695,
+          "weight": 0.170850810160499,
+          "error_ema": 0.17198639796428766
+        }
+      ]
+    },
+    {
+      "index": 27,
+      "observation": 0.07740327,
+      "prediction": 0.07707886919146188,
+      "residual": 0.00032440080853811393,
+      "anomaly_score": 0.0008238336119846037,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": 0.5615755350891037,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4365647822596911,
+      "return_diversity": 0.23845171317930816,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.08133639549233726,
+          "weight": 0.21216739613139676,
+          "error_ema": 0.11832403166144395
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.08014497786642873,
+          "weight": 0.21783503047527647,
+          "error_ema": 0.11446493528914348
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.07798005196732313,
+          "weight": 0.39778513037070906,
+          "error_ema": 0.049111865121735265
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.06583150348667904,
+          "weight": 0.17221244302261768,
+          "error_ema": 0.15273664219017166
+        }
+      ]
+    },
+    {
+      "index": 28,
+      "observation": 0.10819641,
+      "prediction": 0.126676634012607,
+      "residual": -0.018480224012607002,
+      "anomaly_score": 0.04640308642700368,
+      "regime": "exploratory",
+      "trust": 1.0,
+      "chaos_phase": 0.5612507006515814,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.45099710729271303,
+      "return_diversity": 0.25216406363432997,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.1459930024036063,
+          "weight": 0.21085741506848696,
+          "error_ema": 0.10866073895050343
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.14296456442206035,
+          "weight": 0.21673356971634117,
+          "error_ema": 0.10490132158509351
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.11551118328651602,
+          "weight": 0.3945902680875837,
+          "error_ema": 0.044096214101508956
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.10806627652404369,
+          "weight": 0.17781874712758808,
+          "error_ema": 0.1344238611444658
+        }
+      ]
+    },
+    {
+      "index": 29,
+      "observation": 0.16753071,
+      "prediction": 0.20374273598522075,
+      "residual": -0.03621202598522075,
+      "anomaly_score": 0.09045894331168249,
+      "regime": "exploratory",
+      "trust": 1.0,
+      "chaos_phase": 0.5609195808798733,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.464798997113329,
+      "return_diversity": 0.2651084443403414,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.23943763959531353,
+          "weight": 0.2067995162297674,
+          "error_ema": 0.10425028182788064
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.23451981725819415,
+          "weight": 0.21298425827004844,
+          "error_ema": 0.10035185586586559
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.1816253087519989,
+          "weight": 0.39382213681697376,
+          "error_ema": 0.04049602025956775
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.17298309819070162,
+          "weight": 0.1863940886832104,
+          "error_ema": 0.1189472843900141
+        }
+      ]
+    },
+    {
+      "index": 30,
+      "observation": 0.2547523,
+      "prediction": 0.3062840756543337,
+      "residual": -0.0515317756543337,
+      "anomaly_score": 0.1288442591943119,
+      "regime": "exploratory",
+      "trust": 1.0,
+      "chaos_phase": 0.560592520581435,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4780207569079802,
+      "return_diversity": 0.27735572622751636,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.35999523728230853,
+          "weight": 0.2000084744577984,
+          "error_ema": 0.10436940048241199
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.3532199173270607,
+          "weight": 0.20653113910254065,
+          "error_ema": 0.10012574724120901
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.27547140031063583,
+          "weight": 0.39450848764826396,
+          "error_ema": 0.03812278986569592
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.2581638585154121,
+          "weight": 0.198951898791397,
+          "error_ema": 0.10508299728506186
+        }
+      ]
+    },
+    {
+      "index": 31,
+      "observation": 0.36839595,
+      "prediction": 0.43115612034744855,
+      "residual": -0.06276017034744852,
+      "anomaly_score": 0.15791692151854436,
+      "regime": "exploratory",
+      "trust": 1.0,
+      "chaos_phase": 0.560280019882435,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4907070731171487,
+      "return_diversity": 0.28896801813545947,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.5052025909199581,
+          "weight": 0.1913843996795549,
+          "error_ema": 0.10826186933491751
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.49668422129074796,
+          "weight": 0.19820317804755982,
+          "error_ema": 0.10350525012715367
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.3953914930073769,
+          "weight": 0.3961992414912192,
+          "error_ema": 0.03678752024269764
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.35961085743479393,
+          "weight": 0.21421318078166607,
+          "error_ema": 0.09352724871867918
+        }
+      ]
+    },
+    {
+      "index": 32,
+      "observation": 0.50622718,
+      "prediction": 0.5746874778673219,
+      "residual": -0.06846029786732188,
+      "anomaly_score": 0.17407559092473301,
+      "regime": "exploratory",
+      "trust": 1.0,
+      "chaos_phase": 0.5599922606355298,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.5028978038640771,
+      "return_diversity": 0.29999999999999766,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.6718857030968315,
+          "weight": 0.18260297581681376,
+          "error_ema": 0.11514946778634719
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.6618108270769913,
+          "weight": 0.18965181683829868,
+          "error_ema": 0.10975465776113419
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.538968374930158,
+          "weight": 0.3997577790193308,
+          "error_ema": 0.036301961205192884
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.47330031246849014,
+          "weight": 0.2279874283255567,
+          "error_ema": 0.08625520297621886
+        }
+      ]
+    },
+    {
+      "index": 33,
+      "observation": 0.66530645,
+      "prediction": 0.73390985163052,
+      "residual": -0.06860340163052003,
+      "anomaly_score": 0.17661995869408692,
+      "regime": "exploratory",
+      "trust": 1.0,
+      "chaos_phase": 0.559738666662335,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.5101881223475989,
+      "return_diversity": 0.3105000179964489,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 0.856254298375256,
+          "weight": 0.17500283135575292,
+          "error_ema": 0.12424527345701625
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 0.8448655682511861,
+          "weight": 0.18222603239674542,
+          "error_ema": 0.1181311930199404
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.7030950222155802,
+          "weight": 0.40603513279227327,
+          "error_ema": 0.036480354526439364
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.5976525774626662,
+          "weight": 0.23673600345522833,
+          "error_ema": 0.08402304332355265
+        }
+      ]
+    },
+    {
+      "index": 34,
+      "observation": 0.84207383,
+      "prediction": 0.9068005234131212,
+      "residual": -0.0647266934131212,
+      "anomaly_score": 0.16851837561548727,
+      "regime": "exploratory",
+      "trust": 1.0,
+      "chaos_phase": 0.5595275265126062,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.5012078175139899,
+      "return_diversity": 0.31462863706620786,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.054011081315262,
+          "weight": 0.16932496550206605,
+          "error_ema": 0.13476831080000576
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.0415896394268882,
+          "weight": 0.1766932065301148,
+          "error_ema": 0.12789734698877414
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 0.8840641339817125,
+          "weight": 0.41553090718812363,
+          "error_ema": 0.037141548461072135
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.7332207689269787,
+          "weight": 0.23845092077969546,
+          "error_ema": 0.08700264545348887
+        }
+      ]
+    },
+    {
+      "index": 35,
+      "observation": 1.03245138,
+      "prediction": 1.0918552844050318,
+      "residual": -0.05940390440503185,
+      "anomaly_score": 0.1556276003746916,
+      "regime": "exploratory",
+      "trust": 1.0,
+      "chaos_phase": 0.5593657049264338,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.49250994330183967,
+      "return_diversity": 0.308680106548049,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.2604721206223333,
+          "weight": 0.1655577813074488,
+          "error_ema": 0.14595860237868508
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.2473217846653208,
+          "weight": 0.17305651917564813,
+          "error_ema": 0.13833411390995975
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.07767471925973,
+          "weight": 0.42770125829259004,
+          "error_ema": 0.03811136335691109
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.8816298377957756,
+          "weight": 0.23368444122431303,
+          "error_ema": 0.09466091306357713
+        }
+      ]
+    },
+    {
+      "index": 36,
+      "observation": 1.23196067,
+      "prediction": 1.2865264848557543,
+      "residual": -0.05456581485575418,
+      "anomaly_score": 0.14261468792092505,
+      "regime": "exploratory",
+      "trust": 1.0,
+      "chaos_phase": 0.5592584345633671,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4840882439370805,
+      "return_diversity": 0.3029406945165575,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.4706974658832888,
+          "weight": 0.1632650618639681,
+          "error_ema": 0.1570919855992375
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.4571327282374376,
+          "weight": 0.17087992764931112,
+          "error_ema": 0.1487546672292571
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.279353213433498,
+          "weight": 0.4412501016512702,
+          "error_ema": 0.0392251049661015
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.0428327065379868,
+          "weight": 0.22460490883545065,
+          "error_ema": 0.10599695911138947
+        }
+      ]
+    },
+    {
+      "index": 37,
+      "observation": 1.43585167,
+      "prediction": 1.486481576632579,
+      "residual": -0.05062990663257905,
+      "anomaly_score": 0.13055576745747746,
+      "regime": "exploratory",
+      "trust": 1.0,
+      "chaos_phase": 0.5592091875212368,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4759352217386225,
+      "return_diversity": 0.2974031128995732,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.6796283553998657,
+          "weight": 0.16199407892507964,
+          "error_ema": 0.1674941495753129
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.665966745704165,
+          "weight": 0.16970738638843716,
+          "error_ema": 0.15851791624624606
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.4842850691324379,
+          "weight": 0.4548960222225509,
+          "error_ema": 0.040330100266061875
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.213845841959071,
+          "weight": 0.21340251246393235,
+          "error_ema": 0.1199180233829342
+        }
+      ]
+    },
+    {
+      "index": 38,
+      "observation": 1.63923964,
+      "prediction": 1.6862878981198686,
+      "residual": -0.04704825811986857,
+      "anomaly_score": 0.11829823809279609,
+      "regime": "exploratory",
+      "trust": 1.0,
+      "chaos_phase": 0.5592195989951837,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4680425816586826,
+      "return_diversity": 0.2920596937187053,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.8822295903090265,
+          "weight": 0.16144647808478277,
+          "error_ema": 0.17655364566335852
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.8687874739754844,
+          "weight": 0.1692402745067684,
+          "error_ema": 0.16704150637375464
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.6875535465959082,
+          "weight": 0.4677825885711402,
+          "error_ema": 0.04128815702564343
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.3897184823655064,
+          "weight": 0.2015306588373086,
+          "error_ema": 0.1354703994931213
+        }
+      ]
+    },
+    {
+      "index": 39,
+      "observation": 1.83724576,
+      "prediction": 1.8803617404392616,
+      "residual": -0.04311598043926157,
+      "anomaly_score": 0.10462604706298065,
+      "regime": "exploratory",
+      "trust": 1.0,
+      "chaos_phase": 0.559289436831876,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.46040155652009573,
+      "return_diversity": 0.2869026170699301,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.073632657864795,
+          "weight": 0.1614674268764361,
+          "error_ema": 0.1837336359275309
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.060722708209135,
+          "weight": 0.1693262532067269,
+          "error_ema": 0.1738137593940003
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.8842812320935471,
+          "weight": 0.47946732921120483,
+          "error_ema": 0.04197783483379187
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.5649719186182405,
+          "weight": 0.18973899070563216,
+          "error_ema": 0.1518868125197579
+        }
+      ]
+    },
+    {
+      "index": 40,
+      "observation": 2.02513775,
+      "prediction": 2.0634713007417553,
+      "residual": -0.038333550741755484,
+      "anomaly_score": 0.08911301019147498,
+      "regime": "exploratory",
+      "trust": 1.0,
+      "chaos_phase": 0.5594165999741275,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4530031447310713,
+      "return_diversity": 0.2819240704636823,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.24927693087761,
+          "weight": 0.1619919127649767,
+          "error_ema": 0.18858230132154044
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.2372050165878794,
+          "weight": 0.1699033342034527,
+          "error_ema": 0.17840418025726582
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.069770655549818,
+          "weight": 0.4897691153499803,
+          "error_ema": 0.042296443319715035
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.73438990977165,
+          "weight": 0.17833563768159036,
+          "error_ema": 0.16855013584478895
+        }
+      ]
+    },
+    {
+      "index": 41,
+      "observation": 2.19846613,
+      "prediction": 2.23090751123075,
+      "residual": -0.03244138123075002,
+      "anomaly_score": 0.07196624745171998,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": 0.5595971570339175,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4458382833817892,
+      "return_diversity": 0.2771163590244611,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.405043691819846,
+          "weight": 0.1630061621725982,
+          "error_ema": 0.1907417325813371
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.3941031457966977,
+          "weight": 0.1709597573786644,
+          "error_ema": 0.18047212052199765
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.2396395148454262,
+          "weight": 0.49863396338559507,
+          "error_ema": 0.04216167630280039
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.8932699987077752,
+          "weight": 0.16740011706314234,
+          "error_ema": 0.18494765529848126
+        }
+      ]
+    },
+    {
+      "index": 42,
+      "observation": 2.35319245,
+      "prediction": 2.3785501524279278,
+      "residual": -0.025357702427927897,
+      "anomaly_score": 0.05364230705184307,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": 0.5598254295008976,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4388979733877104,
+      "return_diversity": 0.27247198033190256,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.53737946734144,
+          "weight": 0.16452900945229632,
+          "error_ema": 0.18995516675254942
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.527841307566291,
+          "weight": 0.17251480866450197,
+          "error_ema": 0.17977332896731288
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.3899469983265726,
+          "weight": 0.5060491983278611,
+          "error_ema": 0.041512820945653076
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.0374763696372638,
+          "weight": 0.15690698355534066,
+          "error_ema": 0.20063986630619182
+        }
+      ]
+    },
+    {
+      "index": 43,
+      "observation": 2.48580559,
+      "prediction": 2.5029231228211524,
+      "residual": -0.01711753282115236,
+      "anomaly_score": 0.034593086924671036,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": 0.5600941441242487,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4321733689066515,
+      "return_diversity": 0.26798367373911863,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.643403236077971,
+          "weight": 0.16660612321008358,
+          "error_ema": 0.1860722642716
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.635502173924024,
+          "weight": 0.17461313035447606,
+          "error_ema": 0.1761641195621182
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.517307250886581,
+          "weight": 0.5119926560126983,
+          "error_ema": 0.04031148173856443
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.1634609855403513,
+          "weight": 0.1467880904227421,
+          "error_ema": 0.21524443488460665
+        }
+      ]
+    },
+    {
+      "index": 44,
+      "observation": 2.59342295,
+      "prediction": 2.6012541955900343,
+      "residual": -0.007831245590034452,
+      "anomaly_score": 0.015172060385416103,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": 0.5603946651376202,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.425655840066926,
+      "return_diversity": 0.263644451246299,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.7209936298630115,
+          "weight": 0.16931177792328747,
+          "error_ema": 0.1790520741425694
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.7149111947166444,
+          "weight": 0.1773268726726866,
+          "error_ema": 0.16960301458066135
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.618986974652678,
+          "weight": 0.5163999942010975,
+          "error_ema": 0.03854178688825809
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.2682954395097794,
+          "weight": 0.13696135520292838,
+          "error_ema": 0.22843040395728031
+        }
+      ]
+    },
+    {
+      "index": 45,
+      "observation": 6.67387344,
+      "prediction": 8.866440992283763,
+      "residual": -2.192567552283763,
+      "anomaly_score": 2.045249594531815,
+      "regime": "drifting",
+      "trust": 0.9313577958109817,
+      "chaos_phase": 0.5527298572325806,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4193370157293863,
+      "return_diversity": 0.2594476150587124,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 10.94087014748312,
+          "weight": 0.1290279687714945,
+          "error_ema": 0.6696054301434353
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 11.273062897859933,
+          "weight": 0.12346064328268663,
+          "error_ema": 0.701153387774174
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 7.643166283834804,
+          "weight": 0.500847301284439,
+          "error_ema": 0.1502319137218435
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 7.798366190468499,
+          "weight": 0.24666408666137993,
+          "error_ema": 0.3359578855386266
+        }
+      ]
+    },
+    {
+      "index": 46,
+      "observation": 2.72576004,
+      "prediction": 0.8073574847807079,
+      "residual": 1.918402555219292,
+      "anomaly_score": 2.1871036384655014,
+      "regime": "drifting",
+      "trust": 0.870819552001404,
+      "chaos_phase": -0.380067622994021,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.41320881131246495,
+      "return_diversity": 0.25538676556740975,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": -1.0815426230099536,
+          "weight": 0.12844788949267472,
+          "error_ema": 1.0461290980874174
+        },
+        {
+          "name": "chaos_modulated",
+          "value": -0.8772268426927665,
+          "weight": 0.12806180933632197,
+          "error_ema": 1.0493734071644052
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.7879032826035162,
+          "weight": 0.5031049085730327,
+          "error_ema": 0.24474689496280033
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 0.6476142959591031,
+          "weight": 0.24038539259797068,
+          "error_ema": 0.545020428558899
+        }
+      ]
+    },
+    {
+      "index": 47,
+      "observation": 2.74850002,
+      "prediction": 2.6195819881221856,
+      "residual": 0.12891803187781425,
+      "anomaly_score": 0.18168155206121162,
+      "regime": "drifting",
+      "trust": 0.8992351209722952,
+      "chaos_phase": -0.5627063337568463,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4072634454602425,
+      "return_diversity": 0.2514558024896769,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.895299488046339,
+          "weight": 0.1315690604196169,
+          "error_ema": 0.938209542482488
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.768296935921634,
+          "weight": 0.133273897054886,
+          "error_ema": 0.9258242282152727
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.7539018009888796,
+          "weight": 0.5177773421188031,
+          "error_ema": 0.21602548128592988
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.1119097368887148,
+          "weight": 0.21737970040669397,
+          "error_ema": 0.5560088111051853
+        }
+      ]
+    },
+    {
+      "index": 48,
+      "observation": 2.74234167,
+      "prediction": 2.609614818506836,
+      "residual": 0.13272685149316388,
+      "anomaly_score": 0.1858489065744674,
+      "regime": "drifting",
+      "trust": 0.9229422652083584,
+      "chaos_phase": -0.5614713424784793,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.40149344840604506,
+      "return_diversity": 0.24764892117991405,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.7339244446000226,
+          "weight": 0.13602951057352514,
+          "error_ema": 0.8266344644325868
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.736978599519649,
+          "weight": 0.1378422702962831,
+          "error_ema": 0.8153688892870821
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.740878781380359,
+          "weight": 0.5290023639194482,
+          "error_ema": 0.19027797016597522
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.143632605041002,
+          "weight": 0.19712585521074358,
+          "error_ema": 0.5611328415676429
+        }
+      ]
+    },
+    {
+      "index": 49,
+      "observation": 2.70835713,
+      "prediction": 2.5863778075798485,
+      "residual": 0.12197932242015153,
+      "anomaly_score": 0.16988464999780545,
+      "regime": "drifting",
+      "trust": 0.9448194441900586,
+      "chaos_phase": -0.5612188618186604,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.3958916641909723,
+      "return_diversity": 0.24396060559112404,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.6669687370157495,
+          "weight": 0.1398443168940362,
+          "error_ema": 0.7324049358587864
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.678759325917393,
+          "weight": 0.14195360586890068,
+          "error_ema": 0.7210763590625451
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.700284253854646,
+          "weight": 0.5373529184313377,
+          "error_ema": 0.16841335888350067
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.1604894726165105,
+          "weight": 0.18084915880572536,
+          "error_ema": 0.5595410194655445
+        }
+      ]
+    },
+    {
+      "index": 50,
+      "observation": 2.64841143,
+      "prediction": 2.532113532013576,
+      "residual": 0.11629789798642376,
+      "anomaly_score": 0.16136951879704003,
+      "regime": "drifting",
+      "trust": 0.964355135683675,
+      "chaos_phase": -0.5609142678658984,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.3904512483759629,
+      "return_diversity": 0.24038561897746988,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.5764090739384997,
+          "weight": 0.14311101221974254,
+          "error_ema": 0.6531566262831121
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.5961993416382576,
+          "weight": 0.1457444739461498,
+          "error_ema": 0.6408126465784488
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.634171595900538,
+          "weight": 0.5434153645704003,
+          "error_ema": 0.14991253590941603
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.144315819790631,
+          "weight": 0.16772914926370736,
+          "error_ema": 0.5528875703548034
+        }
+      ]
+    },
+    {
+      "index": 51,
+      "observation": 2.56510873,
+      "prediction": 2.4514264486448716,
+      "residual": 0.11368228135512837,
+      "anomaly_score": 0.15741793201303086,
+      "regime": "drifting",
+      "trust": 0.9814014364560399,
+      "chaos_phase": -0.5606425930125873,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.38516566249268747,
+      "return_diversity": 0.23691899314061962,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.465704591427832,
+          "weight": 0.1458938416807711,
+          "error_ema": 0.5867063277577987
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.4925477295985785,
+          "weight": 0.14930352410398026,
+          "error_ema": 0.5726224490372055
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.545320544558221,
+          "weight": 0.5476260624561657,
+          "error_ema": 0.13429761385329958
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.099310829219754,
+          "weight": 0.15717657175908295,
+          "error_ema": 0.5424368100058565
+        }
+      ]
+    },
+    {
+      "index": 52,
+      "observation": 2.46171719,
+      "prediction": 2.349037769114442,
+      "residual": 0.11267942088555793,
+      "anomaly_score": 0.15596016968095755,
+      "regime": "drifting",
+      "trust": 0.9960542270519662,
+      "chaos_phase": -0.560407432628145,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.38002866618023423,
+      "return_diversity": 0.23355601680927673,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.3388703573704217,
+          "weight": 0.1482426460160118,
+          "error_ema": 0.5310431883424123
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.37165216912198,
+          "weight": 0.1526861599597303,
+          "error_ema": 0.5147155576581033
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.4371569900709327,
+          "weight": 0.5503275905229469,
+          "error_ema": 0.1211291241823917
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.0299734944888748,
+          "weight": 0.148743603501311,
+          "error_ema": 0.5291536362664887
+        }
+      ]
+    },
+    {
+      "index": 53,
+      "observation": 2.34207479,
+      "prediction": 2.229877443885551,
+      "residual": 0.11219734611444876,
+      "anomaly_score": 0.15544963169618953,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5602170064688329,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.3750343077273775,
+      "return_diversity": 0.2302922235825931,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.2003678820511388,
+          "weight": 0.15020525025398793,
+          "error_ema": 0.48432283469518617
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.2378483026501916,
+          "weight": 0.1559247532851436,
+          "error_ema": 0.46545686922110785
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.31365427064229,
+          "weight": 0.5517980882698597,
+          "error_ema": 0.11000409160342987
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.9411446010136642,
+          "weight": 0.1420719081910089,
+          "error_ema": 0.5137668225928703
+        }
+      ]
+    },
+    {
+      "index": 54,
+      "observation": 2.21047864,
+      "prediction": 2.09907167321901,
+      "residual": 0.11140696678099005,
+      "anomaly_score": 0.15470384140585405,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5600775566011031,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.37017691356667554,
+      "return_diversity": 0.22712337974981978,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.0549843129058263,
+          "weight": 0.1518352652519514,
+          "error_ema": 0.44486341378306465
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.0958344215345255,
+          "weight": 0.15903722336468423,
+          "error_ema": 0.4233593511304318
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.1792185605593075,
+          "weight": 0.5522662268109993,
+          "error_ema": 0.10055481014390137
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.837950533731143,
+          "weight": 0.13686128457236502,
+          "error_ema": 0.4968181766339887
+        }
+      ]
+    },
+    {
+      "index": 55,
+      "observation": 2.07156116,
+      "prediction": 1.9618738771548896,
+      "residual": 0.10968728284511031,
+      "anomaly_score": 0.1528161807273446,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5599936142141697,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.3654510771336924,
+      "return_diversity": 0.2240454722101522,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.9077026335231697,
+          "weight": 0.1531962255590276,
+          "error_ema": 0.4111428273063165
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.9505360473916267,
+          "weight": 0.16203495448350969,
+          "error_ema": 0.3870792425077848
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.038561931219365,
+          "weight": 0.5519186805603233,
+          "error_ema": 0.09244814038030941
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.7256932783077898,
+          "weight": 0.13285013939713933,
+          "error_ema": 0.47870414124097527
+        }
+      ]
+    },
+    {
+      "index": 56,
+      "observation": 1.9301565,
+      "prediction": 1.8235637620883438,
+      "residual": 0.10659273791165624,
+      "anomaly_score": 0.14910722947077243,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5599678375551111,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.37313699744477813,
+      "return_diversity": 0.2293966091195594,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.7635643952355615,
+          "weight": 0.15436295193476507,
+          "error_ema": 0.38179674060129115
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.8069637141864958,
+          "weight": 0.16493004204797754,
+          "error_ema": 0.35541286770447117
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.8965664526856671,
+          "weight": 0.5509040798763511,
+          "error_ema": 0.08538516921239223
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.6097131462231857,
+          "weight": 0.12980292614090633,
+          "error_ema": 0.45971284674527596
+        }
+      ]
+    },
+    {
+      "index": 57,
+      "observation": 1.79116125,
+      "prediction": 1.689329978797246,
+      "residual": 0.10183127120275404,
+      "anomaly_score": 0.14309793492731412,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5600009511338658,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.37938817485287535,
+      "return_diversity": 0.2381139583844168,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.627528568963576,
+          "weight": 0.15542129307680028,
+          "error_ema": 0.35561705345350714
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.6700686186067106,
+          "weight": 0.16774148847578818,
+          "error_ema": 0.3272944393471294
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.7581435473021712,
+          "weight": 0.5493355776025081,
+          "error_ema": 0.07910107323064462
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.4952430549702407,
+          "weight": 0.12750164084490348,
+          "error_ema": 0.44005748853941395
+        }
+      ]
+    },
+    {
+      "index": 58,
+      "observation": 1.65939328,
+      "prediction": 1.5641462247898321,
+      "residual": 0.09524705521016785,
+      "anomaly_score": 0.13449391908214914,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.560091729329763,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.38452704533014637,
+      "return_diversity": 0.24312607446401113,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.504329388697358,
+          "weight": 0.15646755606485002,
+          "error_ema": 0.33155067399540333
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.5445998045431415,
+          "weight": 0.1705000547512967,
+          "error_ema": 0.3017943236802969
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.6280923854834146,
+          "weight": 0.5472928168347586,
+          "error_ema": 0.0733650517849575
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.3872673600880308,
+          "weight": 0.1257395723490947,
+          "error_ema": 0.4199057003041206
+        }
+      ]
+    },
+    {
+      "index": 59,
+      "observation": 1.53945289,
+      "prediction": 1.4526486132060377,
+      "residual": 0.0868042767939623,
+      "anomaly_score": 0.12317307805966002,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5602370283720073,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.3887708824882644,
+      "return_diversity": 0.24673097946086847,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.3983376450552432,
+          "weight": 0.15760887359651007,
+          "error_ema": 0.3086984225093257
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.4349673609653373,
+          "weight": 0.17325181789123348,
+          "error_ema": 0.2781172683228208
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.5109615844447264,
+          "weight": 0.5448230932537897,
+          "error_ema": 0.06798020223739544
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.2903949091660496,
+          "weight": 0.12431621525846677,
+          "error_ema": 0.39940397396770017
+        }
+      ]
+    },
+    {
+      "index": 60,
+      "observation": 1.43559026,
+      "prediction": 1.3590202039980503,
+      "residual": 0.07657005600194955,
+      "anomaly_score": 0.10917096253543629,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5604318705747785,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.39997641508624343,
+      "return_diversity": 0.25151462284345816,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.3134295914764047,
+          "weight": 0.15896556055050054,
+          "error_ema": 0.2863138920310381
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.3451154534431546,
+          "weight": 0.17606087084656932,
+          "error_ema": 0.2556001729109037
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.4109181547391756,
+          "weight": 0.5419407670044241,
+          "error_ema": 0.06278323060020691
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.2087526494364647,
+          "weight": 0.12303280159850608,
+          "error_ema": 0.37869601035920036
+        }
+      ]
+    },
+    {
+      "index": 61,
+      "observation": 1.35158299,
+      "prediction": 1.286887580123632,
+      "residual": 0.06469540987636813,
+      "anomaly_score": 0.09266008569004422,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5606695933969658,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4084616540380355,
+      "return_diversity": 0.25945953370639296,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.2528679897278314,
+          "weight": 0.1606764105316405,
+          "error_ema": 0.26380202501997374
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.2784087940400566,
+          "weight": 0.17901188363055426,
+          "error_ema": 0.23370905567678846
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.33162743709214,
+          "weight": 0.5386233359111181,
+          "error_ema": 0.05764390927712529
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.145903822481318,
+          "weight": 0.12168836992668719,
+          "error_ema": 0.3579339892183382
+        }
+      ]
+    },
+    {
+      "index": 62,
+      "observation": 1.29062725,
+      "prediction": 1.2392335889826638,
+      "residual": 0.05139366101733622,
+      "anomaly_score": 0.07392111493539233,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5609420772476263,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.41519512441416795,
+      "return_diversity": 0.2639604987315321,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.219200015825453,
+          "weight": 0.16290812829876997,
+          "error_ema": 0.2407170501185225
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.237535817065626,
+          "weight": 0.18221339349058205,
+          "error_ema": 0.2120349409476987
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.2761474853962014,
+          "weight": 0.5348017874483755,
+          "error_ema": 0.05246421191632609
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.1047931156348347,
+          "weight": 0.12007669076227259,
+          "error_ema": 0.3372820066359574
+        }
+      ]
+    },
+    {
+      "index": 63,
+      "observation": 1.25524572,
+      "prediction": 1.218329657345566,
+      "residual": 0.036916062654434034,
+      "anomaly_score": 0.05330585155180503,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5612400602752147,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4206505891735355,
+      "return_diversity": 0.2671572788061823,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.2141767335757283,
+          "weight": 0.16587100093885418,
+          "error_ema": 0.21675928247521242
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.2244314223668609,
+          "weight": 0.1858027809462444,
+          "error_ema": 0.19028846374995154
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.2468409951008808,
+          "weight": 0.5303415552387751,
+          "error_ema": 0.04717707347426127
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.0877198565005641,
+          "weight": 0.11798466287612627,
+          "error_ema": 0.3169112694595748
+        }
+      ]
+    },
+    {
+      "index": 64,
+      "observation": 1.24721496,
+      "prediction": 1.2256900637169383,
+      "residual": 0.021524896283061645,
+      "anomaly_score": 0.031193863602223107,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.561553534591848,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4084626687676291,
+      "return_diversity": 0.2695239655774431,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.2386981033042503,
+          "weight": 0.16984505152038382,
+          "error_ema": 0.1917701913816769
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.2402214313825954,
+          "weight": 0.18995403767518484,
+          "error_ema": 0.1682930715340459
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.2453072887226173,
+          "weight": 0.5250080611523641,
+          "error_ema": 0.041744745210635835
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.0963388894474895,
+          "weight": 0.11519284965206725,
+          "error_ema": 0.2969870455907271
+        }
+      ]
+    },
+    {
+      "index": 65,
+      "observation": 1.26751432,
+      "prediction": 1.2620496057512705,
+      "residual": 0.00546471424872963,
+      "anomaly_score": 0.007945941723853024,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5618722036024316,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4084626687676291,
+      "return_diversity": 0.26388390233613573,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.2927864436722143,
+          "weight": 0.1732094672255285,
+          "error_ema": 0.17179042325654137
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.2851903813889687,
+          "weight": 0.19394184755111782,
+          "error_ema": 0.15021903031663664
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.2723363425758523,
+          "weight": 0.5192382283098294,
+          "error_ema": 0.037314018494461795
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.1316873186059446,
+          "weight": 0.1136104569135244,
+          "error_ema": 0.2776478402871265
+        }
+      ]
+    },
+    {
+      "index": 66,
+      "observation": 1.31629777,
+      "prediction": 1.3266188494263735,
+      "residual": -0.010321079426373503,
+      "anomaly_score": 0.015055028745504156,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5621859627111282,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.41584056089005,
+      "return_diversity": 0.2609149421331824,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.375589159648458,
+          "weight": 0.17519409023676955,
+          "error_ema": 0.15829053922357136
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.3587733847153973,
+          "weight": 0.19718707110699912,
+          "error_ema": 0.13728982044448793
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.3278860613169652,
+          "weight": 0.5136068170486094,
+          "error_ema": 0.0342269312331622
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.1912772919744503,
+          "weight": 0.11401202160762197,
+          "error_ema": 0.2593325568157373
+        }
+      ]
+    },
+    {
+      "index": 67,
+      "observation": 1.39288962,
+      "prediction": 1.417899047769259,
+      "residual": -0.025009427769258963,
+      "anomaly_score": 0.03659390846742871,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5624853591514057,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4225347670450634,
+      "return_diversity": 0.26480676248673174,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.4854101338071386,
+          "weight": 0.17565147323991853,
+          "error_ema": 0.15039813617359943
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.4595726573212764,
+          "weight": 0.19952018422330065,
+          "error_ema": 0.12881700646970254
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.4110836729073957,
+          "weight": 0.5085983916247577,
+          "error_ema": 0.03230298583407021
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.2727861282170907,
+          "weight": 0.11622995091202308,
+          "error_ema": 0.24262506901179795
+        }
+      ]
+    },
+    {
+      "index": 68,
+      "observation": 1.49580411,
+      "prediction": 1.5337339089608149,
+      "residual": -0.03792979896081494,
+      "anomaly_score": 0.05567042428526597,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5627619767399259,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4303184077521621,
+      "return_diversity": 0.27510737882868386,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.6197663425662547,
+          "weight": 0.17467637502387065,
+          "error_ema": 0.14722582774071807
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.5853978367796562,
+          "weight": 0.20087679178702975,
+          "error_ema": 0.124110212906897
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.5202509888258495,
+          "weight": 0.5045149529263337,
+          "error_ema": 0.03136025299308374
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.3740304206204712,
+          "weight": 0.11993188026276595,
+          "error_ema": 0.22812290345592565
+        }
+      ]
+    },
+    {
+      "index": 69,
+      "observation": 1.6227884,
+      "prediction": 1.6712262923282784,
+      "residual": -0.04843789232827844,
+      "anomaly_score": 0.07131072775347488,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5630087053580974,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.43733052935607664,
+      "return_diversity": 0.2802730920985679,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.775466174604328,
+          "weight": 0.17258677010290513,
+          "error_ema": 0.1478800613643513
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.7333292400358449,
+          "weight": 0.20133371659124033,
+          "error_ema": 0.12248188816237075
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.6529529526340996,
+          "weight": 0.5014924143032075,
+          "error_ema": 0.031216768950005653
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.4922570932940706,
+          "weight": 0.12458709900264714,
+          "error_ema": 0.2164119118459261
+        }
+      ]
+    },
+    {
+      "index": 70,
+      "observation": 1.77088764,
+      "prediction": 1.8269415755608698,
+      "residual": -0.056053935560869794,
+      "anomaly_score": 0.08276495017025867,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5632198661162356,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.43733052935607664,
+      "return_diversity": 0.2873179837605719,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 1.9487051737745547,
+          "weight": 0.16983176688393786,
+          "error_ema": 0.1514725580535757
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 1.8998020201513153,
+          "weight": 0.2011030574713052,
+          "error_ema": 0.1232537872010441
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.806067954982666,
+          "weight": 0.4995721991016763,
+          "error_ema": 0.031692394473924884
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.6245443124690953,
+          "weight": 0.12949297654308073,
+          "error_ema": 0.20800368172812353
+        }
+      ]
+    },
+    {
+      "index": 71,
+      "observation": 1.93653032,
+      "prediction": 1.99711458647608,
+      "residual": -0.06058426647608006,
+      "anomaly_score": 0.08968665216995457,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5633911909145598,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.43733052935607664,
+      "return_diversity": 0.2873179837605719,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.13517612501429,
+          "weight": 0.16687528044569735,
+          "error_ema": 0.15713334768886142
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.0807090258471597,
+          "weight": 0.20048133082355482,
+          "error_ema": 0.12576477743857797
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 1.975878001034507,
+          "weight": 0.49876084843696733,
+          "error_ema": 0.03261102886119474
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.7681513988590143,
+          "weight": 0.13388254029378052,
+          "error_ema": 0.20324871045766696
+        }
+      ]
+    },
+    {
+      "index": 72,
+      "observation": 2.11563143,
+      "prediction": 2.177805324957376,
+      "residual": -0.0621738949573758,
+      "anomaly_score": 0.09222083708417493,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5635196782274701,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.43733052935607664,
+      "return_diversity": 0.2873179837605719,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.330190721401995,
+          "weight": 0.16410238314933331,
+          "error_ema": 0.16402446093443745
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.271519330028202,
+          "weight": 0.19977391076349052,
+          "error_ema": 0.12937955214933286
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.1581761011512164,
+          "weight": 0.49903364299993663,
+          "error_ema": 0.03380306593599733
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.9206621916879703,
+          "weight": 0.13709006308723956,
+          "error_ema": 0.2022551738001905
+        }
+      ]
+    },
+    {
+      "index": 73,
+      "observation": 2.30371036,
+      "prediction": 2.3649565036369595,
+      "residual": -0.06124614363695935,
+      "anomaly_score": 0.09093320219719328,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5636033705302315,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.43733052935607664,
+      "return_diversity": 0.2873179837605719,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.5288103719264976,
+          "weight": 0.16177259560371085,
+          "error_ema": 0.17135352705348464
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.4674088486590446,
+          "weight": 0.1992288447809169,
+          "error_ema": 0.13349782453049824
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.348387672314383,
+          "weight": 0.5002994249867592,
+          "error_ema": 0.03510797550140359
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.079832179006137,
+          "weight": 0.13869913462861305,
+          "error_ema": 0.2048499346634312
+        }
+      ]
+    },
+    {
+      "index": 74,
+      "observation": 2.49602026,
+      "prediction": 2.5543617029380044,
+      "residual": -0.05834144293800447,
+      "anomaly_score": 0.08658942947716414,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5636411165757746,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.43733052935607664,
+      "return_diversity": 0.2873179837605719,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.725984242816118,
+          "weight": 0.16002106413337147,
+          "error_ema": 0.17838678174500064
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.6633995936441472,
+          "weight": 0.19900666640560985,
+          "error_ema": 0.13756360562413614
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.5417026203975612,
+          "weight": 0.5023776903964571,
+          "error_ema": 0.03637690168894252
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.2432279302391054,
+          "weight": 0.13859457906456163,
+          "error_ema": 0.21060302207512682
+        }
+      ]
+    },
+    {
+      "index": 75,
+      "observation": 2.68768509,
+      "prediction": 2.741625456503108,
+      "residual": -0.053940366503108184,
+      "anomaly_score": 0.07990208209355272,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.563632379564944,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.43733052935607664,
+      "return_diversity": 0.2873179837605719,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.9166915820573878,
+          "weight": 0.1588914038762019,
+          "error_ema": 0.18446114698248708
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.8545033640312836,
+          "weight": 0.19918865338331443,
+          "error_ema": 0.14107416583299381
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.73321421689153,
+          "weight": 0.5050158950436959,
+          "error_ema": 0.037475168713253
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.4079031350698625,
+          "weight": 0.13690404769678768,
+          "error_ema": 0.2189044940177281
+        }
+      ]
+    },
+    {
+      "index": 76,
+      "observation": 2.87384039,
+      "prediction": 2.9222053658243152,
+      "residual": -0.048364975824315426,
+      "anomaly_score": 0.07138344872071058,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5635771421744735,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.43733052935607664,
+      "return_diversity": 0.2873179837605719,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.0960850932894255,
+          "weight": 0.1583776333568439,
+          "error_ema": 0.1889951737393197
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.035865729445834,
+          "weight": 0.19980572424174042,
+          "error_ema": 0.1435883066665347
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.918060752573721,
+          "weight": 0.5079321165942682,
+          "error_ema": 0.038284591976509214
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.570318376246706,
+          "weight": 0.1338845258071476,
+          "error_ema": 0.22905859638599596
+        }
+      ]
+    },
+    {
+      "index": 77,
+      "observation": 3.04977369,
+      "prediction": 3.091555778809955,
+      "residual": -0.04178208880995493,
+      "anomaly_score": 0.06134334425001899,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5634759344383846,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.43733052935607664,
+      "return_diversity": 0.2873179837605719,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.2596315600367123,
+          "weight": 0.15845880335488044,
+          "error_ema": 0.19149869729500685
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.2029061284582445,
+          "weight": 0.20086816742497904,
+          "error_ema": 0.14473360248153988
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.0915658619918336,
+          "weight": 0.5108531007230518,
+          "error_ema": 0.03870550157834816
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.7265173026408953,
+          "weight": 0.12981992849708873,
+          "error_ema": 0.240362331302769
+        }
+      ]
+    },
+    {
+      "index": 78,
+      "observation": 3.21106062,
+      "prediction": 3.2453247170927093,
+      "residual": -0.03426409709270928,
+      "anomaly_score": 0.04996910509597288,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5633299805293556,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.43733052935607664,
+      "return_diversity": 0.2873179837605719,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.4032457853141898,
+          "weight": 0.15912122518900496,
+          "error_ema": 0.1915810734573088
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.351450264478596,
+          "weight": 0.20238666453115375,
+          "error_ema": 0.14421232752118665
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.249373612017968,
+          "weight": 0.5135315076645705,
+          "error_ema": 0.03865840043110255
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.8724265126122455,
+          "weight": 0.12496060261527095,
+          "error_ema": 0.25215494443296727
+        }
+      ]
+    },
+    {
+      "index": 79,
+      "observation": 3.35369263,
+      "prediction": 3.379546394356208,
+      "residual": -0.02585376435620823,
+      "anomaly_score": 0.03740932928192703,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5631414257285972,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.43733052935607664,
+      "return_diversity": 0.2873179837605719,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.5234128173143047,
+          "weight": 0.16037096336600712,
+          "error_ema": 0.18895776712014833
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.4778505815028344,
+          "weight": 0.20438464568258144,
+          "error_ema": 0.1418058023989844
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.3875742288414976,
+          "weight": 0.5157431597095951,
+          "error_ema": 0.03808518424034998
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.004146444328407,
+          "weight": 0.1195012312418164,
+          "error_ema": 0.26384189338160235
+        }
+      ]
+    },
+    {
+      "index": 80,
+      "observation": 3.47419281,
+      "prediction": 3.4908000298614503,
+      "residual": -0.016607219861450417,
+      "anomaly_score": 0.02382432643472461,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5629135892841737,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.43733052935607664,
+      "return_diversity": 0.2873179837605719,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.6172944012470523,
+          "weight": 0.16224150035881377,
+          "error_ema": 0.1834550260153768
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.5790918165683667,
+          "weight": 0.20690576596827878,
+          "error_ema": 0.1373769868993103
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.5028170911770538,
+          "weight": 0.5172715143741993,
+          "error_ema": 0.036949875872754445
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.1181743551896326,
+          "weight": 0.11358121929870814,
+          "error_ema": 0.27490308075305414
+        }
+      ]
+    },
+    {
+      "index": 81,
+      "observation": 3.56971632,
+      "prediction": 3.576329540752998,
+      "residual": -0.0066132207529978615,
+      "anomaly_score": 0.009402727640973673,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5626511731269005,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.43733052935607664,
+      "return_diversity": 0.2873179837605719,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.682814562550373,
+          "weight": 0.1648009330282833,
+          "error_ema": 0.17501221199957634
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.652878154558579,
+          "weight": 0.21002025477829023,
+          "error_ema": 0.13087116861842257
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.5924075044385546,
+          "weight": 0.5178848596383386,
+          "error_ema": 0.035238832900650476
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.2115569827993657,
+          "weight": 0.10729395255508778,
+          "error_ema": 0.28489383152676373
+        }
+      ]
+    },
+    {
+      "index": 82,
+      "observation": 3.63813267,
+      "prediction": 3.6341288216539698,
+      "residual": 0.004003848346030292,
+      "anomaly_score": 0.005642289580123195,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5623603700764329,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.43733052935607664,
+      "return_diversity": 0.2873179837605719,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.718720906800292,
+          "weight": 0.16816227670407496,
+          "error_ema": 0.1636813349756622
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.697699851901786,
+          "weight": 0.21383291525701317,
+          "error_ema": 0.12231469021242618
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.654384669287534,
+          "weight": 0.5173075073912596,
+          "error_ema": 0.03296041286707651
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.2819910316210024,
+          "weight": 0.1006973006476523,
+          "error_ema": 0.29344356834903185
+        }
+      ]
+    },
+    {
+      "index": 83,
+      "observation": 3.67808734,
+      "prediction": 3.6629969259234283,
+      "residual": 0.015090414076571523,
+      "anomaly_score": 0.02108567917613234,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5620488282992876,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4303184077521621,
+      "return_diversity": 0.2802730920985679,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.724618463113246,
+          "weight": 0.17250075232339124,
+          "error_ema": 0.14962330955217226
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.712877020644525,
+          "weight": 0.21849507778249974,
+          "error_ema": 0.11181168906427805
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.68757839394213,
+          "weight": 0.5151820592450816,
+          "error_ema": 0.030144089796082928
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.327887625206416,
+          "weight": 0.09382211064902742,
+          "error_ema": 0.30025430592237806
+        }
+      ]
+    },
+    {
+      "index": 84,
+      "observation": 3.68904108,
+      "prediction": 3.662565788924141,
+      "residual": 0.026475291075858998,
+      "anomaly_score": 0.03670571461262536,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5617254620455226,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.42374606567914,
+      "return_diversity": 0.2731618905508143,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.700975651276962,
+          "weight": 0.17808399922482887,
+          "error_ema": 0.13310066095914702
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.698579631227596,
+          "weight": 0.22422311114016966,
+          "error_ema": 0.09953891252387621
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.6916430921604824,
+          "weight": 0.5110152763774183,
+          "error_ema": 0.026839040479810863
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.3484108186027894,
+          "weight": 0.08667761325758323,
+          "error_ema": 0.30509942057935796
+        }
+      ]
+    },
+    {
+      "index": 85,
+      "observation": 3.67128574,
+      "prediction": 3.6333008542976173,
+      "residual": 0.03798488570238279,
+      "anomaly_score": 0.05230037017705869,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5614001218352457,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.4091477188585616,
+      "return_diversity": 0.2628612742088622,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.6491033470884386,
+          "weight": 0.18298523558705376,
+          "error_ema": 0.11979046879343674
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.6558230055090224,
+          "weight": 0.2294641836037041,
+          "error_ema": 0.08944977115992839
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.66706803804674,
+          "weight": 0.5064149215561904,
+          "error_ema": 0.024124479856624772
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.3434947126645085,
+          "weight": 0.08113565925305172,
+          "error_ema": 0.30782241339009403
+        }
+      ]
+    },
+    {
+      "index": 86,
+      "observation": 3.62593601,
+      "prediction": 3.575523431433076,
+      "residual": 0.05041257856692427,
+      "anomaly_score": 0.06901291043396474,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5610831596852496,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.3944307156561508,
+      "return_diversity": 0.2524980328395688,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.5711095325264366,
+          "weight": 0.1860893650212557,
+          "error_ema": 0.11199478983505197
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.586438623053833,
+          "weight": 0.23289945183426242,
+          "error_ema": 0.08345548505427702
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.6151633835788326,
+          "weight": 0.5030956695781542,
+          "error_ema": 0.022522257444369913
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.3071922111082506,
+          "weight": 0.07791551356632759,
+          "error_ema": 0.3091329796502927
+        }
+      ]
+    },
+    {
+      "index": 87,
+      "observation": 3.55489764,
+      "prediction": 3.491568881300666,
+      "residual": 0.0633287586993343,
+      "anomaly_score": 0.08629879212169844,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5607849460685093,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.379598099219067,
+      "return_diversity": 0.24207385942927964,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.469834082985477,
+          "weight": 0.1873933230901728,
+          "error_ema": 0.10876304189658853
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.493021837152526,
+          "weight": 0.23454698066839863,
+          "error_ema": 0.08086592318946065
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.538022791537205,
+          "weight": 0.5015620413548342,
+          "error_ema": 0.021844568366580944
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.2391860376409904,
+          "weight": 0.07649765488659442,
+          "error_ema": 0.3099224143753387
+        }
+      ]
+    },
+    {
+      "index": 88,
+      "observation": 3.46081267,
+      "prediction": 3.3851972429972554,
+      "residual": 0.0756154270027447,
+      "anomaly_score": 0.10268763287714155,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5605153819094347,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.3646527604882953,
+      "return_diversity": 0.2315903578280744,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.348765798761795,
+          "weight": 0.18715479478825167,
+          "error_ema": 0.1091571014175825
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.3788569967650424,
+          "weight": 0.23463688880712946,
+          "error_ema": 0.08099669319492031
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.4384632043326904,
+          "weight": 0.5017597623196873,
+          "error_ema": 0.021905156042668406
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.144639681870812,
+          "weight": 0.07644855408493163,
+          "error_ema": 0.3106724832258006
+        }
+      ]
+    },
+    {
+      "index": 89,
+      "observation": 3.34698358,
+      "prediction": 3.26056742954648,
+      "residual": 0.08641615045351969,
+      "anomaly_score": 0.11707782563381978,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5602834598863379,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.34959744934027503,
+      "return_diversity": 0.2210490496095327,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.2119455405869197,
+          "weight": 0.18579787511170276,
+          "error_ema": 0.11226281397704221
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.2478230979676095,
+          "weight": 0.23354816660202757,
+          "error_ema": 0.08317634785541672
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.319943986546379,
+          "weight": 0.5032650432452762,
+          "error_ema": 0.022521288531982684
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.029004421226824,
+          "weight": 0.07738891504099342,
+          "error_ema": 0.31154928429148565
+        }
+      ]
+    },
+    {
+      "index": 90,
+      "observation": 3.21727829,
+      "prediction": 3.122159935218553,
+      "residual": 0.0951183547814467,
+      "anomaly_score": 0.128693319410218,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5600968970495408,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.3344347846668929,
+      "return_diversity": 0.210451380244147,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.0638563029739783,
+          "weight": 0.18378327343992612,
+          "error_ema": 0.11720191474291974
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.1042819320057795,
+          "weight": 0.23171005858938237,
+          "error_ema": 0.08675474907207317
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.1864673759323923,
+          "weight": 0.5055166251111007,
+          "error_ema": 0.023516043596257676
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.8978949863241894,
+          "weight": 0.07899004285959084,
+          "error_ema": 0.3124893666176046
+        }
+      ]
+    },
+    {
+      "index": 91,
+      "observation": 3.07601896,
+      "prediction": 2.9746954975623376,
+      "residual": 0.10132346243766222,
+      "anomaly_score": 0.13703043867348175,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5599618581767208,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.31291726351735927,
+      "return_diversity": 0.19979872467013698,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.9093025371272345,
+          "weight": 0.18151348675311546,
+          "error_ema": 0.12314365571850122
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.9529525924896673,
+          "weight": 0.2295198331867329,
+          "error_ema": 0.0911121432846643
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.042463435180019,
+          "weight": 0.507990533784414,
+          "error_ema": 0.02472078134310448
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.7569258096939038,
+          "weight": 0.08097614627573776,
+          "error_ema": 0.31328182066022364
+        }
+      ]
+    },
+    {
+      "index": 92,
+      "observation": -0.27214239,
+      "prediction": -2.0659387217151544,
+      "residual": 1.7937963317151544,
+      "anomaly_score": 1.9328459188031484,
+      "regime": "drifting",
+      "trust": 0.933245611674095,
+      "chaos_phase": -0.5662170073078346,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.31291726351735927,
+      "return_diversity": 0.19979872467013698,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": -3.51518593851762,
+          "weight": 0.1474558030469703,
+          "error_ema": 0.49753164285439544
+        },
+        {
+          "name": "chaos_modulated",
+          "value": -3.184272983096425,
+          "weight": 0.16923800582085138,
+          "error_ema": 0.4296343572620756
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": -1.0674832094788005,
+          "weight": 0.528465666481668,
+          "error_ema": 0.117195185919388
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": -1.911178825576203,
+          "weight": 0.1548405246505102,
+          "error_ema": 0.4723723744501412
+        }
+      ]
+    },
+    {
+      "index": 93,
+      "observation": 2.77764232,
+      "prediction": 4.275093577772008,
+      "residual": -1.497451257772008,
+      "anomaly_score": 1.3536264430727065,
+      "regime": "drifting",
+      "trust": 0.8890909584872643,
+      "chaos_phase": -0.18308255149355618,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2912972694086274,
+      "return_diversity": 0.19979872467013698,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 6.013059600933218,
+          "weight": 0.13233527555871222,
+          "error_ema": 0.8260779194238541
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 5.699003685771048,
+          "weight": 0.14933178937599087,
+          "error_ema": 0.7286415982831523
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.5021050973047188,
+          "weight": 0.5147939242674615,
+          "error_ema": 0.19006729688562768
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.701890855506462,
+          "weight": 0.20353901079783548,
+          "error_ema": 0.5265975137768997
+        }
+      ]
+    },
+    {
+      "index": 94,
+      "observation": 2.63027769,
+      "prediction": 2.4413434705361015,
+      "residual": 0.18893421946389832,
+      "anomaly_score": 0.25480476629497645,
+      "regime": "drifting",
+      "trust": 0.9073685729493571,
+      "chaos_phase": -0.5008464361715479,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2695770798967926,
+      "return_diversity": 0.18909239233344605,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.4115076639086137,
+          "weight": 0.13490589460807498,
+          "error_ema": 0.753200972223958
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.4998886814432444,
+          "weight": 0.15383013723087502,
+          "error_ema": 0.6568512875159848
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.5952718783516486,
+          "weight": 0.5244637668875326,
+          "error_ema": 0.1714599186571545
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.02847057605363,
+          "weight": 0.18680020127351735,
+          "error_ema": 0.535622665797236
+        }
+      ]
+    },
+    {
+      "index": 95,
+      "observation": 2.49058375,
+      "prediction": 2.334525626775861,
+      "residual": 0.1560581232241387,
+      "anomaly_score": 0.21096323995765875,
+      "regime": "drifting",
+      "trust": 0.9272323713765303,
+      "chaos_phase": -0.5640053123139281,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.24775887348983544,
+      "return_diversity": 0.1783336317586792,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.3263099347971665,
+          "weight": 0.13770938246324582,
+          "error_ema": 0.682529713381423
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.3690110785793546,
+          "weight": 0.1575959093552487,
+          "error_ema": 0.592617853584544
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.457400076603907,
+          "weight": 0.530771577971413,
+          "error_ema": 0.1548667692258271
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.9670755231341859,
+          "weight": 0.1739231302100925,
+          "error_ema": 0.5341689331254654
+        }
+      ]
+    },
+    {
+      "index": 96,
+      "observation": 2.36315724,
+      "prediction": 2.228051198290926,
+      "residual": 0.13510604170907392,
+      "anomaly_score": 0.18304660924771737,
+      "regime": "drifting",
+      "trust": 0.9470395504385131,
+      "chaos_phase": -0.559843203063622,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.22584473597181534,
+      "return_diversity": 0.16752363470431328,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.213320039726742,
+          "weight": 0.14020620102400694,
+          "error_ema": 0.6186066118084432
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.2521386690681324,
+          "weight": 0.16100299687803601,
+          "error_ema": 0.5348259396662228
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.3328876399740865,
+          "weight": 0.5352006044532936,
+          "error_ema": 0.13991510892183748
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.8979532313092597,
+          "weight": 0.16359019764466334,
+          "error_ema": 0.5258931421932984
+        }
+      ]
+    },
+    {
+      "index": 97,
+      "observation": 2.25223943,
+      "prediction": 2.136180726720306,
+      "residual": 0.11605870327969381,
+      "anomaly_score": 0.1575891848370175,
+      "regime": "drifting",
+      "trust": 0.9666640162509973,
+      "chaos_phase": -0.5603713511492108,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.1566635399483959,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.121831109747576,
+          "weight": 0.14256814276307128,
+          "error_ema": 0.560022816821721
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.1556173075029283,
+          "weight": 0.16421641003846352,
+          "error_ema": 0.48224148160592467
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.2258913981465787,
+          "weight": 0.538230467434554,
+          "error_ema": 0.12628705967362752
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.8358531474778306,
+          "weight": 0.1549849797639111,
+          "error_ema": 0.512752319032763
+        }
+      ]
+    },
+    {
+      "index": 98,
+      "observation": 2.16159407,
+      "prediction": 2.06377297617224,
+      "residual": 0.09782109382775994,
+      "anomaly_score": 0.13310923402236538,
+      "regime": "drifting",
+      "trust": 0.9861442805335944,
+      "chaos_phase": -0.5605899970172746,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.055089164097273,
+          "weight": 0.14494104006890343,
+          "error_ema": 0.5056006675114417
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.082636132881167,
+          "weight": 0.1673621721144943,
+          "error_ema": 0.43384745626747373
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.14006166837176,
+          "weight": 0.540164263867915,
+          "error_ema": 0.11371650070818103
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.7868396666024984,
+          "weight": 0.14753252394868727,
+          "error_ema": 0.49619256915653165
+        }
+      ]
+    },
+    {
+      "index": 99,
+      "observation": 2.09439918,
+      "prediction": 2.0145757144353134,
+      "residual": 0.07982346556468656,
+      "anomaly_score": 0.10883437018960174,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.56086974941474,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.0156207938559847,
+          "weight": 0.14746372548162762,
+          "error_ema": 0.45438199374735055
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.0358724336567375,
+          "weight": 0.17055215691915987,
+          "error_ema": 0.3888089710765684
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.0784373330963586,
+          "weight": 0.5411847060046826,
+          "error_ema": 0.10198594225163626
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.7555717789183956,
+          "weight": 0.14079941159452994,
+          "error_ema": 0.4773087489875404
+        }
+      ]
+    },
+    {
+      "index": 100,
+      "observation": 2.05315574,
+      "prediction": 1.9913402612774733,
+      "residual": 0.06181547872252646,
+      "anomaly_score": 0.0844304997719948,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.561172840196634,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.0051532814528206,
+          "weight": 0.15028223278324046,
+          "error_ema": 0.40561644952333
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.017235580623784,
+          "weight": 0.17389632452936657,
+          "error_ema": 0.3464623136725261
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.043358544483205,
+          "weight": 0.5413796733479617,
+          "error_ema": 0.09092329264345526
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.745565645492503,
+          "weight": 0.13444176933943125,
+          "error_ema": 0.45694251044993517
+        }
+      ]
+    },
+    {
+      "index": 101,
+      "observation": 2.03961586,
+      "prediction": 1.9958823801582137,
+      "residual": 0.04373347984178633,
+      "anomaly_score": 0.059823455578362425,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.561491326099117,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.0245602874916373,
+          "weight": 0.1535633536966337,
+          "error_ema": 0.3587491442815339
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.0278245607905774,
+          "weight": 0.1775120554628515,
+          "error_ema": 0.3063017919369537
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.0363995217984843,
+          "weight": 0.5407468850956075,
+          "error_ema": 0.08039845811042252
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.7593519862375895,
+          "weight": 0.12817770574490736,
+          "error_ema": 0.43574107404743223
+        }
+      ]
+    },
+    {
+      "index": 102,
+      "observation": 2.05473253,
+      "prediction": 2.0291106996724877,
+      "residual": 0.025621830327512196,
+      "anomaly_score": 0.03509130639117622,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5618147060836928,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.0738361078560468,
+          "weight": 0.1567804690870038,
+          "error_ema": 0.3179916763104755
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.0678958634720064,
+          "weight": 0.18118145685511203,
+          "error_ema": 0.27112517692116006
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.0583234276446403,
+          "weight": 0.5392119194611773,
+          "error_ema": 0.07118155085452867
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.7985736549657456,
+          "weight": 0.12282615459670693,
+          "error_ema": 0.41419121016585086
+        }
+      ]
+    },
+    {
+      "index": 103,
+      "observation": 2.09863249,
+      "prediction": 2.090474005095332,
+      "residual": 0.008158484904667862,
+      "anomaly_score": 0.011184752943557865,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5621328475644359,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.152099710324757,
+          "weight": 0.15939525013695993,
+          "error_ema": 0.28624874159218927
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.136856599809764,
+          "weight": 0.1845270218728429,
+          "error_ema": 0.24317704886779254
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.1090607300134288,
+          "weight": 0.5368828197729053,
+          "error_ema": 0.06389115355359667
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.8617966784414473,
+          "weight": 0.11919490821729185,
+          "error_ema": 0.3929085623329751
+        }
+      ]
+    },
+    {
+      "index": 104,
+      "observation": 2.17061281,
+      "prediction": 2.178513452760445,
+      "residual": -0.007900642760444665,
+      "anomaly_score": 0.010840119786872805,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5624362659696318,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.2576268967720092,
+          "weight": 0.16128997329188552,
+          "error_ema": 0.26234058301376767
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.2332817312470574,
+          "weight": 0.1874695488057223,
+          "error_ema": 0.22151607355330433
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.187711414490834,
+          "weight": 0.5341381504164321,
+          "error_ema": 0.05827604766606511
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.9465005038581593,
+          "weight": 0.11710232748596008,
+          "error_ema": 0.372653011590039
+        }
+      ]
+    },
+    {
+      "index": 105,
+      "observation": 2.26916149,
+      "prediction": 2.291375619030307,
+      "residual": -0.02221412903030684,
+      "anomaly_score": 0.03049954556710875,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5627165258409313,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.38790834298416,
+          "weight": 0.16240836997873925,
+          "error_ema": 0.24510933541021476
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.354955526707764,
+          "weight": 0.1899424697615761,
+          "error_ema": 0.20522942913183947
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.2925712901011073,
+          "weight": 0.531322916358672,
+          "error_ema": 0.054092097958270156
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.0511779115052513,
+          "weight": 0.11632624390101258,
+          "error_ema": 0.3540926796186042
+        }
+      ]
+    },
+    {
+      "index": 106,
+      "observation": 2.39200131,
+      "prediction": 2.4263979989142577,
+      "residual": -0.034396688914257734,
+      "anomaly_score": 0.04725138779197499,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5629665086587381,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.5397288354166547,
+          "weight": 0.1627819387444272,
+          "error_ema": 0.23342351821098756
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.498935547944376,
+          "weight": 0.19191613549158817,
+          "error_ema": 0.19343400618934387
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.4211813622407403,
+          "weight": 0.5287199579567211,
+          "error_ema": 0.05110265247216658
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.1735563525185855,
+          "weight": 0.11658196780726342,
+          "error_ema": 0.3378149529621414
+        }
+      ]
+    },
+    {
+      "index": 107,
+      "observation": 2.53615579,
+      "prediction": 2.5802554213854902,
+      "residual": -0.04409963138549022,
+      "anomaly_score": 0.06060362981687535,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5631805395222188,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.7092641685839887,
+          "weight": 0.16253141675336774,
+          "error_ema": 0.22618570145574768
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.661637720501183,
+          "weight": 0.1934144927008078,
+          "error_ema": 0.18527975710676456
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.5703990448105065,
+          "weight": 0.5265361057711828,
+          "error_ema": 0.04907952475276737
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.3108517742343446,
+          "weight": 0.11751798477464163,
+          "error_ema": 0.3243136404985631
+        }
+      ]
+    },
+    {
+      "index": 108,
+      "observation": 2.69803529,
+      "prediction": 2.749121563338586,
+      "residual": -0.051086273338586174,
+      "anomaly_score": 0.07021618492299628,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5633543661420094,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.8921919662440096,
+          "weight": 0.16184316854929864,
+          "error_ema": 0.2223422184303391
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.8389398196838065,
+          "weight": 0.1945174763403266,
+          "error_ema": 0.1799547298160096
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.7364890443827803,
+          "weight": 0.524904082940432,
+          "error_ema": 0.04780443230836892
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.460024447743428,
+          "weight": 0.11873527216994283,
+          "error_ema": 0.31395730470952415
+        }
+      ]
+    },
+    {
+      "index": 109,
+      "observation": 2.87354078,
+      "prediction": 2.9288258625332215,
+      "residual": -0.05528508253322162,
+      "anomaly_score": 0.07597404868422145,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5634850145483099,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.083813881538067,
+          "weight": 0.1609312866024039,
+          "error_ema": 0.2208939244032665
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.0263004858752294,
+          "weight": 0.19534773254446286,
+          "error_ema": 0.17669132694311598
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.9152313276313526,
+          "weight": 0.5238910169631044,
+          "error_ema": 0.04707076614712698
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.6179793695539395,
+          "weight": 0.11982996389002894,
+          "error_ema": 0.3069497973979085
+        }
+      ]
+    },
+    {
+      "index": 110,
+      "observation": 3.05818232,
+      "prediction": 3.114985358722353,
+      "residual": -0.05680303872235326,
+      "anomaly_score": 0.0780088441852818,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5635705679402776,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.2791869879373627,
+          "weight": 0.16000029009645628,
+          "error_ema": 0.22090721362735807
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.218890396360471,
+          "weight": 0.19604713963581044,
+          "error_ema": 0.17477333687319863
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.1020430956264278,
+          "weight": 0.5235043358114432,
+          "error_ema": 0.0466855672846431
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.7816592332478924,
+          "weight": 0.12044823445629006,
+          "error_ema": 0.3032985921204123
+        }
+      ]
+    },
+    {
+      "index": 111,
+      "observation": 3.24720876,
+      "prediction": 3.3031011124000504,
+      "residual": -0.05589235240005053,
+      "anomaly_score": 0.07665864382282134,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5636099284087095,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.473261865786906,
+          "weight": 0.15921975025076504,
+          "error_ema": 0.22152472068650386
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.411731648987377,
+          "weight": 0.19675276233326086,
+          "error_ema": 0.1735432831269
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.292111149095663,
+          "weight": 0.52369390195384,
+          "error_ema": 0.04647158590196551
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.948017597620578,
+          "weight": 0.12033358546213418,
+          "error_ema": 0.3028057005514935
+        }
+      ]
+    },
+    {
+      "index": 112,
+      "observation": 3.43574503,
+      "prediction": 3.4886281750933503,
+      "residual": -0.05288314509335024,
+      "anomaly_score": 0.07238098155094633,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5636026260703239,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.661025034839593,
+          "weight": 0.15871495270040806,
+          "error_ema": 0.22197535478487454
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.5998416065172543,
+          "weight": 0.1975807522919374,
+          "error_ema": 0.17240967833374252
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.4805309813948684,
+          "weight": 0.5243558207306614,
+          "error_ema": 0.04626930976111385
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.1139191222713385,
+          "weight": 0.11934847427699319,
+          "error_ema": 0.30508812541275365
+        }
+      ]
+    },
+    {
+      "index": 113,
+      "observation": 3.61893295,
+      "prediction": 3.667043643661874,
+      "residual": -0.04811069366187404,
+      "anomaly_score": 0.06565578063209905,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.563548723317537,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.837642095376392,
+          "weight": 0.15857119356765229,
+          "error_ema": 0.2215834096558566
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.778376746758065,
+          "weight": 0.19862151975302386,
+          "error_ema": 0.17085377254466122
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.662448424668333,
+          "weight": 0.5253421902934167,
+          "error_ema": 0.04593884954998012
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.276051853316262,
+          "weight": 0.1174650963859072,
+          "error_ema": 0.30962328196527183
+        }
+      ]
+    },
+    {
+      "index": 114,
+      "observation": 3.79207158,
+      "prediction": 3.833937363797621,
+      "residual": -0.04186578379762107,
+      "anomaly_score": 0.05691621726791811,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5634488418210584,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.998598129746708,
+          "weight": 0.15884595824827732,
+          "error_ema": 0.21977658646675874
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.9427726150739635,
+          "weight": 0.19994412498032957,
+          "error_ema": 0.16843544404817748
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.833199890577875,
+          "weight": 0.526475143695371,
+          "error_ema": 0.04536158487332751
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.430923593226578,
+          "weight": 0.11473477307602213,
+          "error_ema": 0.3158062465422498
+        }
+      ]
+    },
+    {
+      "index": 115,
+      "observation": 3.95075302,
+      "prediction": 3.985132605468637,
+      "residual": -0.034379585468637064,
+      "anomaly_score": 0.04652361075833257,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5633043052313265,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.13983095169771,
+          "weight": 0.15958340310122462,
+          "error_ema": 0.21609274789447286
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.08887569418817,
+          "weight": 0.20160543740876571,
+          "error_ema": 0.16479791166497657
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.9884470894705997,
+          "weight": 0.5275595889773264,
+          "error_ema": 0.044441483025000166
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.57496034188651,
+          "weight": 0.1112515705126833,
+          "error_ema": 0.32300461833079863
+        }
+      ]
+    },
+    {
+      "index": 116,
+      "observation": 4.09098976,
+      "prediction": 4.116825248650902,
+      "residual": -0.025835488650901794,
+      "anomaly_score": 0.0347771982045869,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5631173623608543,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.2578527815998095,
+          "weight": 0.16082783539338927,
+          "error_ema": 0.21018518073911321
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.213063459078977,
+          "weight": 0.2036603458535151,
+          "error_ema": 0.15967100615465654
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.124302373119029,
+          "weight": 0.5283896378494569,
+          "error_ema": 0.04310601863628361
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.7046744030711043,
+          "weight": 0.10712218090363869,
+          "error_ema": 0.3306019069625703
+        }
+      ]
+    },
+    {
+      "index": 117,
+      "observation": 4.2093299,
+      "prediction": 4.225721886313742,
+      "residual": -0.01639198631374139,
+      "anomaly_score": 0.02193833924856063,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5628914328928484,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.349855660042414,
+          "weight": 0.1626354560442111,
+          "error_ema": 0.20182605025550931
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.312349130276131,
+          "weight": 0.2061713761657395,
+          "error_ema": 0.1528727930492335
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.237441073293616,
+          "weight": 0.5287465078887529,
+          "error_ema": 0.04130663719516349
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.816852339517474,
+          "weight": 0.10244665990129656,
+          "error_ema": 0.338026985384965
+        }
+      ]
+    },
+    {
+      "index": 118,
+      "observation": 4.30295697,
+      "prediction": 4.3091605666682735,
+      "residual": -0.0062035966682731924,
+      "anomaly_score": 0.008252601479191716,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5626313105334675,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.413796239985124,
+          "weight": 0.16508547841395238,
+          "error_ema": 0.190907636623063
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.384468210148033,
+          "weight": 0.20921787049479973,
+          "error_ema": 0.14430940670108944
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.325197663561318,
+          "weight": 0.5283876720007734,
+          "error_ema": 0.039018723959102
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.9087247695540013,
+          "weight": 0.09730897909047453,
+          "error_ema": 0.3447716111922891
+        }
+      ]
+    },
+    {
+      "index": 119,
+      "observation": 4.36977134,
+      "prediction": 4.365204902064723,
+      "residual": 0.004566437935277001,
+      "anomaly_score": 0.006037754105379085,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5623432627815685,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.2167795082313359,
+      "return_diversity": 0.14887943674491716,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.448455740475082,
+          "weight": 0.16829291868350074,
+          "error_ema": 0.17744084828530535
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.427944009509906,
+          "weight": 0.2129059429736858,
+          "error_ema": 0.13397299823814746
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.385642796072079,
+          "weight": 0.5270270452656599,
+          "error_ema": 0.03624105181265928
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.978100047702978,
+          "weight": 0.09177409307715359,
+          "error_ema": 0.350399572924857
+        }
+      ]
+    },
+    {
+      "index": 120,
+      "observation": 4.40845103,
+      "prediction": 4.392708662597451,
+      "residual": 0.01574236740254875,
+      "anomaly_score": 0.02069109701340464,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5620349915511628,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.20686734386508307,
+      "return_diversity": 0.1379223679859071,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.453472989722166,
+          "weight": 0.1724264769421368,
+          "error_ema": 0.16155058165772862
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.44213067197426,
+          "weight": 0.21738101336607865,
+          "error_ema": 0.12193779548648093
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.417639218120559,
+          "weight": 0.5243042298494889,
+          "error_ema": 0.032994708169607256
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 4.02345933142327,
+          "weight": 0.08588827984229568,
+          "error_ema": 0.3545506280030818
+        }
+      ]
+    },
+    {
+      "index": 121,
+      "observation": 4.4184901,
+      "prediction": 4.391350346191482,
+      "residual": 0.027139753808517852,
+      "anomaly_score": 0.0364821923526941,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5617154397758934,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.19595721112329173,
+      "return_diversity": 0.13198882137779275,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.42934941149397,
+          "weight": 0.17773695994579725,
+          "error_ema": 0.1434676292380776
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.427232176857402,
+          "weight": 0.2228453109750874,
+          "error_ema": 0.10835430925099146
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.420874836374967,
+          "weight": 0.5197374150114938,
+          "error_ema": 0.02932151155425047
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 4.044016707528367,
+          "weight": 0.07968031406762156,
+          "error_ema": 0.35694135973930796
+        }
+      ]
+    },
+    {
+      "index": 122,
+      "observation": 4.40021342,
+      "prediction": 4.36163812701159,
+      "residual": 0.038575292988410226,
+      "anomaly_score": 0.05420463598125088,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5613944589900224,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.18381952235781057,
+      "return_diversity": 0.12524329071384344,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.37742704891185,
+          "weight": 0.1824012517335697,
+          "error_ema": 0.12898587826008634
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.384296638182569,
+          "weight": 0.22787059309807003,
+          "error_ema": 0.0972618059589642
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.395871876051244,
+          "weight": 0.5148651860446978,
+          "error_ema": 0.026323915441591184
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 4.039749609381519,
+          "weight": 0.07486296912366254,
+          "error_ema": 0.35736405384480874
+        }
+      ]
+    },
+    {
+      "index": 123,
+      "observation": 4.35476761,
+      "prediction": 4.303924276763359,
+      "residual": 0.050843333236640476,
+      "anomaly_score": 0.07330255917731657,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5610823790549359,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.17006317471296897,
+      "return_diversity": 0.11727316110164025,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.299843044000183,
+          "weight": 0.18547079428436886,
+          "error_ema": 0.12009852078885397
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.315186533934361,
+          "weight": 0.23133508798466765,
+          "error_ema": 0.09034011837176509
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.343972160202672,
+          "weight": 0.5111758447746052,
+          "error_ema": 0.024460499564279512
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 4.004160902735681,
+          "weight": 0.07201827295635835,
+          "error_ema": 0.35655317225515
+        }
+      ]
+    },
+    {
+      "index": 124,
+      "observation": 4.28408818,
+      "prediction": 4.220574508956081,
+      "residual": 0.06351367104391947,
+      "anomaly_score": 0.09161410783925539,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5607895244527032,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.16120184508990346,
+      "return_diversity": 0.10613382844103021,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.199463322964784,
+          "weight": 0.18691250887610458,
+          "error_ema": 0.1158416811384174
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.222525095305807,
+          "weight": 0.2332138204262647,
+          "error_ema": 0.0868868743304565
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.267298596135862,
+          "weight": 0.5091453077051985,
+          "error_ema": 0.023539989680262594
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.9370359773036254,
+          "weight": 0.07072836299243222,
+          "error_ema": 0.35541305590809696
+        }
+      ]
+    },
+    {
+      "index": 125,
+      "observation": 4.19084396,
+      "prediction": 4.115298455732223,
+      "residual": 0.07554550426777684,
+      "anomaly_score": 0.10923313801011839,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5605257338909111,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.1516107523494263,
+      "return_diversity": 0.10142256391222322,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.0797994519407945,
+          "weight": 0.18692917169551437,
+          "error_ema": 0.11526602036891193
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.109620870514713,
+          "weight": 0.2336727169640471,
+          "error_ema": 0.08620722014903609
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.168694210751367,
+          "weight": 0.5087661371664797,
+          "error_ema": 0.023373160828467
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.8434570316517425,
+          "weight": 0.07063197417395879,
+          "error_ema": 0.3544499206009162
+        }
+      ]
+    },
+    {
+      "index": 126,
+      "observation": 4.07836041,
+      "prediction": 3.9922376686133587,
+      "residual": 0.08612274138664144,
+      "anomaly_score": 0.12517611489550276,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5602999248334068,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.1411827621573031,
+      "return_diversity": 0.0962913037636488,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.9449110228713193,
+          "weight": 0.1858851669859671,
+          "error_ema": 0.11744802438008418
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.9803725006602995,
+          "weight": 0.23302321244847055,
+          "error_ema": 0.08762090285191584
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.05164044358175,
+          "weight": 0.5096887780526801,
+          "error_ema": 0.02377477749924099
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.72886086434468,
+          "weight": 0.07140284251288226,
+          "error_ema": 0.3538558756074447
+        }
+      ]
+    },
+    {
+      "index": 127,
+      "observation": 3.95052391,
+      "prediction": 3.8558771938227308,
+      "residual": 0.09464671617726905,
+      "anomaly_score": 0.13875175060126846,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5601197309568353,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.12976646622690424,
+      "return_diversity": 0.09066439961897356,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.799295185312078,
+          "weight": 0.18419473295960112,
+          "error_ema": 0.1215017084170247
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.839156271576886,
+          "weight": 0.23164022851114102,
+          "error_ema": 0.09047051112045962
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.9201569186752536,
+          "weight": 0.5114154773314751,
+          "error_ema": 0.024565843158301612
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.598905137099605,
+          "weight": 0.07274956119778277,
+          "error_ema": 0.35358742328259873
+        }
+      ]
+    },
+    {
+      "index": 128,
+      "observation": 3.81167,
+      "prediction": 3.710954255888092,
+      "residual": 0.10071574411190776,
+      "anomaly_score": 0.14953423974169594,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5599912289878053,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.11713192118886558,
+      "return_diversity": 0.08442693259782821,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.64776547024931,
+          "weight": 0.1822337444989461,
+          "error_ema": 0.12659004697706455
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.6907001934934525,
+          "weight": 0.22988715499613746,
+          "error_ema": 0.09413042656679016
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.7786858719897904,
+          "weight": 0.5134585331632774,
+          "error_ema": 0.02557603734053055
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.459292261788121,
+          "weight": 0.07442056734163911,
+          "error_ema": 0.35344226107411236
+        }
+      ]
+    },
+    {
+      "index": 129,
+      "observation": 3.66645851,
+      "prediction": 3.562366944902072,
+      "residual": 0.10409156509792794,
+      "anomaly_score": 0.1573349602763952,
+      "regime": "drifting",
+      "trust": 1.0,
+      "chaos_phase": -0.5599187456060617,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.10288768777390937,
+      "return_diversity": 0.07738323311345169,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.4953207763719987,
+          "weight": 0.18029875049560332,
+          "error_ema": 0.13193576937517698
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.539947546125529,
+          "weight": 0.22807146071128798,
+          "error_ema": 0.09801609104371187
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.631964167170812,
+          "weight": 0.5154237946218397,
+          "error_ema": 0.026646233999169468
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.3156168572946982,
+          "weight": 0.07620599417126907,
+          "error_ema": 0.3531301880698551
+        }
+      ]
+    },
+    {
+      "index": 130,
+      "observation": 7.51973949,
+      "prediction": 9.784533436274675,
+      "residual": -2.2647939462746747,
+      "anomaly_score": 1.711599749090193,
+      "regime": "drifting",
+      "trust": 0.9374186482138922,
+      "chaos_phase": 0.32691925489605117,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.08620801332340162,
+      "return_diversity": 0.06912047231656276,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 11.559232845157524,
+          "weight": 0.14117472303696815,
+          "error_ema": 0.6008426796690586
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 11.662754171783947,
+          "weight": 0.14518540748274278,
+          "error_ema": 0.58341592193254
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 8.435069228310036,
+          "weight": 0.5454099613343186,
+          "error_ema": 0.13328825451647347
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 9.091692008098544,
+          "weight": 0.1682299081459704,
+          "error_ema": 0.4993888676732977
+        }
+      ]
+    },
+    {
+      "index": 131,
+      "observation": 3.37641352,
+      "prediction": 1.3823118636739415,
+      "residual": 1.9941016563260583,
+      "anomaly_score": 1.9298950163266657,
+      "regime": "contractive",
+      "trust": 0.8801029742286085,
+      "chaos_phase": -0.5628345477477298,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.06320319502707394,
+      "return_diversity": 0.0576938438869544,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": -0.6233097005596164,
+          "weight": 0.13521781319984855,
+          "error_ema": 1.0087083445759255
+        },
+        {
+          "name": "chaos_modulated",
+          "value": -0.23055084034583428,
+          "weight": 0.1438699718895591,
+          "error_ema": 0.9462417345421353
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.3921848858729153,
+          "weight": 0.5292060615765383,
+          "error_ema": 0.2354011000697468
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 1.1832532740646302,
+          "weight": 0.1917061533340541,
+          "error_ema": 0.7026414330647464
+        }
+      ]
+    },
+    {
+      "index": 132,
+      "observation": 3.24129065,
+      "prediction": 3.077656645102978,
+      "residual": 0.16363400489702196,
+      "anomaly_score": 0.24126007612209047,
+      "regime": "contractive",
+      "trust": 0.9010332181594697,
+      "chaos_phase": -0.559832697926679,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.04637446486254206,
+      "return_diversity": 0.04622900666170067,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.215934696439635,
+          "weight": 0.14013192170057998,
+          "error_ema": 0.8907060576540583
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.1235664061986497,
+          "weight": 0.1471457799691113,
+          "error_ema": 0.8468196356532411
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.2091928139276353,
+          "weight": 0.5353435210552467,
+          "error_ema": 0.2110047083900609
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.5825633579994296,
+          "weight": 0.17737877727506207,
+          "error_ema": 0.6973717361370453
+        }
+      ]
+    },
+    {
+      "index": 133,
+      "observation": 3.11895186,
+      "prediction": 2.9602994271342427,
+      "residual": 0.15865243286575748,
+      "anomaly_score": 0.2411270827725241,
+      "regime": "contractive",
+      "trust": 0.9188368746770058,
+      "chaos_phase": -0.5602257970854415,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.03472659751353683,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.975068132995141,
+          "weight": 0.14271474253572744,
+          "error_ema": 0.8010873779761545
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.012376659612711,
+          "weight": 0.15052015317648076,
+          "error_ema": 0.757990303421327
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.0898908252046953,
+          "weight": 0.5411672536289356,
+          "error_ema": 0.1891714675586902
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.5143135618476076,
+          "weight": 0.16559785065885632,
+          "error_ema": 0.686243723578887
+        }
+      ]
+    },
+    {
+      "index": 134,
+      "observation": 3.0136172,
+      "prediction": 2.8784912072267894,
+      "residual": 0.1351259927732107,
+      "anomaly_score": 0.21212784464576234,
+      "regime": "contractive",
+      "trust": 0.9368614159404567,
+      "chaos_phase": -0.5604139266485214,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.8897634833667647,
+          "weight": 0.14512910248613178,
+          "error_ema": 0.7198193386150042
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.921859672397241,
+          "weight": 0.15369222549532272,
+          "error_ema": 0.6780423703230989
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.9885954205675596,
+          "weight": 0.5455391564354372,
+          "error_ema": 0.16947350498354025
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.469540592923809,
+          "weight": 0.15563951558310835,
+          "error_ema": 0.6691836695985635
+        }
+      ]
+    },
+    {
+      "index": 135,
+      "observation": 2.92902427,
+      "prediction": 2.815650182239656,
+      "residual": 0.11337408776034419,
+      "anomaly_score": 0.18523204489960504,
+      "regime": "contractive",
+      "trust": 0.9549904493343794,
+      "chaos_phase": -0.5606635185536248,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.8296515806592666,
+          "weight": 0.14751732404883053,
+          "error_ema": 0.6453657407020919
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.8553398190490693,
+          "weight": 0.15676648688858902,
+          "error_ema": 0.6055194199984387
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.9089295961670585,
+          "weight": 0.5487701433960537,
+          "error_ema": 0.15154804524546842
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.4364433236076612,
+          "weight": 0.14694604566652686,
+          "error_ema": 0.6479913428138165
+        }
+      ]
+    },
+    {
+      "index": 136,
+      "observation": 2.86832064,
+      "prediction": 2.7757725164282814,
+      "residual": 0.09254812357171849,
+      "anomaly_score": 0.15940763398435043,
+      "regime": "contractive",
+      "trust": 0.9732190437674373,
+      "chaos_phase": -0.5609456790487288,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.7972215422282294,
+          "weight": 0.15001184927497238,
+          "error_ema": 0.5764537435504533
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.815448840958746,
+          "weight": 0.1598295414319666,
+          "error_ema": 0.5392017054835766
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.8539007630040665,
+          "weight": 0.5510556604022138,
+          "error_ema": 0.1350926650555242
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.4201421914447523,
+          "weight": 0.1391029488908472,
+          "error_ema": 0.6240137955027882
+        }
+      ]
+    },
+    {
+      "index": 137,
+      "observation": 2.83397322,
+      "prediction": 2.761765894246124,
+      "residual": 0.072207325753876,
+      "anomaly_score": 0.13412471795394232,
+      "regime": "contractive",
+      "trust": 0.9915975229848477,
+      "chaos_phase": -0.5612525606208085,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.794159479403679,
+          "weight": 0.15274843473918925,
+          "error_ema": 0.5120569431959574
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.804059642807915,
+          "weight": 0.16296092679665822,
+          "error_ema": 0.4780871300885976
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.8258141433265345,
+          "weight": 0.5525023293591861,
+          "error_ema": 0.11986063444967715
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.4245094764571324,
+          "weight": 0.13178830910496647,
+          "error_ema": 0.5982677892675978
+        }
+      ]
+    },
+    {
+      "index": 138,
+      "observation": 2.82769731,
+      "prediction": 2.7755384809203374,
+      "residual": 0.05215882907966263,
+      "anomaly_score": 0.10916322848616353,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5615739411043761,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.8212957222575605,
+          "weight": 0.15587820408367983,
+          "error_ema": 0.4513783005415352
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.8222320091279247,
+          "weight": 0.166240484774791,
+          "error_ema": 0.42137251058261493
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.8262064955258484,
+          "weight": 0.5531361925849231,
+          "error_ema": 0.1056562560526141
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.4523477213819875,
+          "weight": 0.12474511855660614,
+          "error_ema": 0.5715176051896476
+        }
+      ]
+    },
+    {
+      "index": 139,
+      "observation": 2.85040726,
+      "prediction": 2.8180442308773923,
+      "residual": 0.03236302912260758,
+      "anomaly_score": 0.08449661949056399,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5618994724016186,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.8785805828563378,
+          "weight": 0.15871006368609905,
+          "error_ema": 0.40059370321931154
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.8701822469476483,
+          "weight": 0.16950100983912017,
+          "error_ema": 0.37318080774641893
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.855801907496102,
+          "weight": 0.5527978141944629,
+          "error_ema": 0.09362486302583264
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.5054958535795286,
+          "weight": 0.11899111228031786,
+          "error_ema": 0.5443248613373464
+        }
+      ]
+    },
+    {
+      "index": 140,
+      "observation": 2.90219028,
+      "prediction": 2.8884298178339645,
+      "residual": 0.013760462166035659,
+      "anomaly_score": 0.06132225226773581,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5622190373012987,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 2.9650899529354,
+          "weight": 0.1610223370983109,
+          "error_ema": 0.3600704195852421
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 2.947277218079821,
+          "weight": 0.17264541773666328,
+          "error_ema": 0.33380954338642715
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 2.9144911058135134,
+          "weight": 0.5516138480401513,
+          "error_ema": 0.08386597856035433
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.5812803927886656,
+          "weight": 0.11471839712487451,
+          "error_ema": 0.517515064442225
+        }
+      ]
+    },
+    {
+      "index": 141,
+      "observation": 2.98230396,
+      "prediction": 2.985547902069243,
+      "residual": -0.0032439420692429444,
+      "anomaly_score": 0.04822935942409358,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5625232193407603,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.0790588499977187,
+          "weight": 0.16272621974288043,
+          "error_ema": 0.3284725560347393
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.0520525048070275,
+          "weight": 0.1756367981051632,
+          "error_ema": 0.3021222235568992
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.001334607941343,
+          "weight": 0.549865462951109,
+          "error_ema": 0.07608573888607298
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.678297864079112,
+          "weight": 0.11177151920084727,
+          "error_ema": 0.4918939882196645
+        }
+      ]
+    },
+    {
+      "index": 142,
+      "observation": 3.08919789,
+      "prediction": 3.1075903022542337,
+      "residual": -0.018392412254233825,
+      "anomaly_score": 0.06705373907956691,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5628036886043395,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.2179407581234383,
+          "weight": 0.1637751864224804,
+          "error_ema": 0.3045049934853832
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.1822549514385146,
+          "weight": 0.17842827036736864,
+          "error_ema": 0.27703440410269303
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.1145900670775797,
+          "weight": 0.5478224182826873,
+          "error_ema": 0.0700025114690538
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.795169914487467,
+          "weight": 0.10997412492746364,
+          "error_ema": 0.4681500666948087
+        }
+      ]
+    },
+    {
+      "index": 143,
+      "observation": 3.22055835,
+      "prediction": 3.2519383780729747,
+      "residual": -0.031380028072974575,
+      "anomaly_score": 0.08315988596576519,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5630534622324579,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.3784873647989184,
+          "weight": 0.16418552576787507,
+          "error_ema": 0.2869158760430074
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.3349073287852073,
+          "weight": 0.18097669673329514,
+          "error_ema": 0.25751215306459474
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.251762442330709,
+          "weight": 0.5457241739092413,
+          "error_ema": 0.06534670117245243
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 2.9297425093449703,
+          "weight": 0.10911360358958846,
+          "error_ema": 0.4468699595700352
+        }
+      ]
+    },
+    {
+      "index": 144,
+      "observation": 3.37337522,
+      "prediction": 3.4152947058004344,
+      "residual": -0.041919485800434586,
+      "anomaly_score": 0.09619539338796484,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5632670231224842,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.556846206221939,
+          "weight": 0.16404121611537098,
+          "error_ema": 0.27450248926447923
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.5063944482070064,
+          "weight": 0.18325717612389822,
+          "error_ema": 0.24257300208168414
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.409676186981769,
+          "weight": 0.5437655021088483,
+          "error_ema": 0.06186121306957043
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.0793010695631278,
+          "weight": 0.10893610565188248,
+          "error_ema": 0.42853446247405563
+        }
+      ]
+    },
+    {
+      "index": 145,
+      "observation": 3.54402873,
+      "prediction": 3.593828738041825,
+      "residual": -0.04980000804182483,
+      "anomaly_score": 0.10590542678484373,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5634402842935856,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.7486713116442143,
+          "weight": 0.16348131959880696,
+          "error_ema": 0.26611930035004744
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.6925670356962774,
+          "weight": 0.18527379223296386,
+          "error_ema": 0.23128883851543533
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.584566711388004,
+          "weight": 0.54209024933801,
+          "error_ema": 0.05930242526778249
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.2407897260493748,
+          "weight": 0.10915463883021914,
+          "error_ema": 0.41349900745124396
+        }
+      ]
+    },
+    {
+      "index": 146,
+      "observation": 3.72839402,
+      "prediction": 3.7833254248734893,
+      "residual": -0.05493140487348924,
+      "anomaly_score": 0.1121846921562873,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5635704344372355,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 3.9492459423540867,
+          "weight": 0.16267532320566286,
+          "error_ema": 0.26068721499053216
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 3.8888616598864973,
+          "weight": 0.1870627063044721,
+          "error_ema": 0.22279029467996275
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.772189173669057,
+          "weight": 0.5407913652401639,
+          "error_ema": 0.05744155267593541
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.410999054977231,
+          "weight": 0.10947060524970115,
+          "error_ema": 0.401966522359827
+        }
+      ]
+    },
+    {
+      "index": 147,
+      "observation": 3.92196001,
+      "prediction": 3.9793224532035323,
+      "residual": -0.057362443203532454,
+      "anomaly_score": 0.1150989326704845,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5636557016002013,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.15361353362827,
+          "weight": 0.16179585725388784,
+          "error_ema": 0.25720317202706067
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.090431948003141,
+          "weight": 0.18868676133645496,
+          "error_ema": 0.21627209187874413
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 3.9679407489837484,
+          "weight": 0.5399129241350812,
+          "error_ema": 0.056066255032872984
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.5866857890371353,
+          "weight": 0.10960445727457611,
+          "error_ema": 0.3939634461921915
+        }
+      ]
+    },
+    {
+      "index": 148,
+      "observation": 4.11995961,
+      "prediction": 4.177228406304854,
+      "residual": -0.05726879630485371,
+      "anomaly_score": 0.11487084012458715,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5636951079528572,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.356716236319512,
+          "weight": 0.1609972131698263,
+          "error_ema": 0.25474958654215474
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.292288586643778,
+          "weight": 0.19022446347635344,
+          "error_ema": 0.21099891805054816
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.166993533296581,
+          "weight": 0.5394517364739527,
+          "error_ema": 0.054982375224517877
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.764610333816622,
+          "weight": 0.10932658687986758,
+          "error_ema": 0.3893297457911339
+        }
+      ]
+    },
+    {
+      "index": 149,
+      "observation": 4.31750715,
+      "prediction": 4.372421801526675,
+      "residual": -0.054914651526675407,
+      "anomaly_score": 0.11183490096814573,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5636882700948164,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.553536918675312,
+          "weight": 0.1604040023354529,
+          "error_ema": 0.2525032083981336
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.489442986850659,
+          "weight": 0.19175822754344182,
+          "error_ema": 0.2063113483065615
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.364433688456583,
+          "weight": 0.5393594159764766,
+          "error_ema": 0.05401567481236573
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 3.94150996941731,
+          "weight": 0.1084783541446286,
+          "error_ema": 0.38772983796612065
+        }
+      ]
+    },
+    {
+      "index": 150,
+      "observation": 4.5097393,
+      "prediction": 4.560342134627951,
+      "residual": -0.05060283462795123,
+      "anomaly_score": 0.10637810487139199,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5636353022554504,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.7392423638236325,
+          "weight": 0.1601098977115986,
+          "error_ema": 0.2497431910491935
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.677051220027252,
+          "weight": 0.19336605673494117,
+          "error_ema": 0.2016314169130444
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.555403191231278,
+          "weight": 0.5395468792908301,
+          "error_ema": 0.05301346078263525
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 4.114056100037241,
+          "weight": 0.1069771662626301,
+          "error_ema": 0.38868424140571717
+        }
+      ]
+    },
+    {
+      "index": 151,
+      "observation": 4.69195529,
+      "prediction": 4.736586568150142,
+      "residual": -0.044631278150141895,
+      "anomaly_score": 0.09888715822120189,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5635368437226784,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 4.909323270138408,
+          "weight": 0.16018363339163216,
+          "error_ema": 0.24585816573989927
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 4.850553632507507,
+          "weight": 0.1951183875751357,
+          "error_ema": 0.19646744798437993
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.735239887024795,
+          "weight": 0.5398915626608769,
+          "error_ema": 0.05184599713169439
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 4.278847579252044,
+          "weight": 0.10480641637235528,
+          "error_ema": 0.39161505772678584
+        }
+      ]
+    },
+    {
+      "index": 152,
+      "observation": 4.85975251,
+      "prediction": 4.8970208106967155,
+      "residual": -0.037268300696715606,
+      "anomaly_score": 0.08971700442473436,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5633942069089205,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 5.059727291448372,
+          "weight": 0.1606787016800499,
+          "error_ema": 0.240352159624916
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 5.005806454212813,
+          "weight": 0.19707949439191155,
+          "error_ema": 0.1904178275317919
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 4.8996119924174355,
+          "weight": 0.5402452716351348,
+          "error_ema": 0.050407615365983344
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 4.432469560392436,
+          "weight": 0.10199653229290376,
+          "error_ema": 0.39589520475247925
+        }
+      ]
+    },
+    {
+      "index": 153,
+      "observation": 5.00915338,
+      "prediction": 5.0379014997346205,
+      "residual": -0.02874811973462066,
+      "anomaly_score": 0.07918267949415092,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.563209605570818,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 5.186980009537098,
+          "weight": 0.16164400561276923,
+          "error_ema": 0.2328490960143779
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 5.139201128835134,
+          "weight": 0.19931181444903007,
+          "error_ema": 0.18317341808819293
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 5.044642891393065,
+          "weight": 0.5404396173419457,
+          "error_ema": 0.04861744288923313
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 4.5716128427848615,
+          "weight": 0.09860456259625501,
+          "error_ema": 0.40089264464799834
+        }
+      ]
+    },
+    {
+      "index": 154,
+      "observation": 5.13672009,
+      "prediction": 5.156000153357275,
+      "residual": -0.019280063357275168,
+      "anomaly_score": 0.0675671798189731,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5629864092129053,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 5.28829006738432,
+          "weight": 0.1631341670775135,
+          "error_ema": 0.223095601778771
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 5.2477685854804585,
+          "weight": 0.20188176056821874,
+          "error_ema": 0.17451842737526482
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 5.167022993911609,
+          "weight": 0.5402866165823534,
+          "error_ema": 0.04641969821191828
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 4.693226597541578,
+          "weight": 0.09469745577191431,
+          "error_ema": 0.40600474638524914
+        }
+      ]
+    },
+    {
+      "index": 155,
+      "observation": 5.23965369,
+      "prediction": 5.2487157531130855,
+      "residual": -0.00906206311308555,
+      "anomaly_score": 0.05513455546337319,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5627293516658555,
+      "anchor": 0.6420149920119997,
+      "entropy": 0.023223015060953367,
+      "return_diversity": 0.02318723243127103,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 5.361633193446965,
+          "weight": 0.1652196164203901,
+          "error_ema": 0.21096166997895432
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 5.329264825661695,
+          "weight": 0.20486639422815822,
+          "error_ema": 0.16432955236963645
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 5.264105108321253,
+          "weight": 0.5395731049678193,
+          "error_ema": 0.043783504625038466
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 4.794672469035757,
+          "weight": 0.09034088438363243,
+          "error_ema": 0.41068192333472836
+        }
+      ]
+    },
+    {
+      "index": 156,
+      "observation": 5.31587475,
+      "prediction": 5.31416653161362,
+      "residual": 0.0017082183863799116,
+      "anomaly_score": 0.05205352825070784,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.562444637610679,
+      "anchor": 0.6420149920119997,
+      "entropy": -3.203426503814916e-16,
+      "return_diversity": 0.011611507530476683,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 5.405811733752334,
+          "weight": 0.16799770082449567,
+          "error_ema": 0.19643870763175994
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 5.382235680911899,
+          "weight": 0.20836112702175205,
+          "error_ema": 0.15257331779470795
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 5.333980723394006,
+          "weight": 0.5380480633950345,
+          "error_ema": 0.04070220087731463
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 4.87385789868616,
+          "weight": 0.08559310875871777,
+          "error_ema": 0.4144421146922217
+        }
+      ]
+    },
+    {
+      "index": 157,
+      "observation": 5.36408334,
+      "prediction": 5.351255522767277,
+      "residual": 0.012827817232722971,
+      "anomaly_score": 0.0653557548438697,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5621399075024542,
+      "anchor": 0.6420149920119997,
+      "entropy": -3.203426503814916e-16,
+      "return_diversity": -1.601713251907458e-16,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 5.420487138711501,
+          "weight": 0.17160706944808457,
+          "error_ema": 0.17963451856132887
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 5.406058936365612,
+          "weight": 0.21248923371333606,
+          "error_ema": 0.13930159122321653
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 5.375535075883791,
+          "weight": 0.5354013529953429,
+          "error_ema": 0.037192145078091834
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 4.929338146670788,
+          "weight": 0.08050234384323651,
+          "error_ema": 0.4168784841286605
+        }
+      ]
+    },
+    {
+      "index": 158,
+      "observation": 5.38379642,
+      "prediction": 5.359707361052671,
+      "residual": 0.02408905894732971,
+      "anomaly_score": 0.07871785803863249,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5618240456736152,
+      "anchor": 0.6420149920119997,
+      "entropy": -3.203426503814916e-16,
+      "return_diversity": -1.601713251907458e-16,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 5.406184068149988,
+          "weight": 0.17624900684127429,
+          "error_ema": 0.16076489411196795
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 5.400962185057595,
+          "weight": 0.21741446295885603,
+          "error_ema": 0.12464529208334188
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 5.388479174372531,
+          "weight": 0.5312305614149264,
+          "error_ema": 0.033291018193424476
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 4.960384761396018,
+          "weight": 0.07510596878494337,
+          "error_ema": 0.4176624650656992
+        }
+      ]
+    },
+    {
+      "index": 159,
+      "observation": 5.37536174,
+      "prediction": 5.340076437794379,
+      "residual": 0.03528530220562054,
+      "anomaly_score": 0.09190189648620886,
+      "regime": "contractive",
+      "trust": 1.0,
+      "chaos_phase": -0.5615068513263575,
+      "anchor": 0.6420149920119997,
+      "entropy": -3.203426503814916e-16,
+      "return_diversity": -1.601713251907458e-16,
+      "branch_predictions": [
+        {
+          "name": "delta_curvature",
+          "value": 5.364267908797683,
+          "weight": 0.18119903765428746,
+          "error_ema": 0.1428043665628098
+        },
+        {
+          "name": "chaos_modulated",
+          "value": 5.368016370040011,
+          "weight": 0.22275123092617613,
+          "error_ema": 0.11056930142853952
+        },
+        {
+          "name": "anchor_smoothed",
+          "value": 5.373358119325255,
+          "weight": 0.5259289492570789,
+          "error_ema": 0.0295365304911829
+        },
+        {
+          "name": "mycelial_consensus",
+          "value": 4.967023338015316,
+          "weight": 0.07012078216245746,
+          "error_ema": 0.4165435774959773
+        }
+      ]
+    }
+  ],
+  "forecasts": [
+    5.348993679098596,
+    5.322887709348453,
+    5.296908162885674,
+    5.271055421186773,
+    5.245328857956988,
+    5.219727857431665,
+    5.194251806795753,
+    5.168900096225346
+  ],
+  "metrics": {
+    "mae": 0.13103497165046804,
+    "rmse": 0.386193776090286,
+    "max_abs_error": 2.2647939462746747,
+    "mean_anomaly_score": 0.18966715580059515,
+    "max_anomaly_score": 2.1871036384655014,
+    "mean_trust": 0.9749715808378621,
+    "final_entropy": -3.203426503814916e-16,
+    "final_return_diversity": -1.601713251907458e-16,
+    "shock_count": 0.0
+  },
+  "summary": {
+    "project": "Triadic Genesis Engine",
+    "claim": "new project-level fusion of three generated algorithms; not a proof of mathematical novelty",
+    "step_count": 160,
+    "forecast_horizon": 8,
+    "dominant_regime": "drifting",
+    "final_trust": 1.0
+  }
+}
